@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>+Life — Personal Health & Wellbeing OS</title>
+<title>+Life — Персональная ОС здоровья и благополучия</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap">
@@ -1109,6 +1109,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
 .foot-r a:hover{color:var(--gr)}
 
 /* ============================================================
+   LANGUAGE SWITCH
+   ============================================================ */
+.lang{display:inline-flex;align-items:center;padding:3px;border-radius:100px;border:1px solid var(--line2);background:rgba(255,255,255,0.03)}
+.lang-btn{font-family:var(--fm);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx2);padding:6px 11px;border-radius:100px;line-height:1;transition:background .25s var(--ease), color .25s var(--ease)}
+.lang-btn:hover{color:var(--tx)}
+.lang-btn[aria-pressed="true"]{background:rgba(255,255,255,0.1);color:var(--tx)}
+.lang-foot{border-color:var(--line)}
+.lang-foot .lang-btn{color:var(--tx3);padding:5px 10px}
+.lang-foot .lang-btn[aria-pressed="true"]{color:var(--tx)}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width:1100px){
@@ -1145,6 +1156,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
   .nav-links{gap:16px}
   .nav-links a:not(.btn){display:none}
   .nav-links .btn-nav{margin-left:0}
+  .nav-links .lang{order:-1}
   .nav{height:62px}
 }
 @media (max-width:640px){
@@ -1210,10 +1222,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
     <span class="brand-word">Life</span>
   </a>
   <div class="nav-links">
-    <a href="#">Platform</a>
-    <a href="#">Data sources</a>
-    <a href="#">Pricing</a>
-    <a class="btn btn-nav" href="https://health-coach-theta.vercel.app" target="_blank" rel="noopener noreferrer">Get early access</a>
+    <a href="#" data-i18n="2">Платформа</a>
+    <a href="#" data-i18n="3">Источники данных</a>
+    <a href="#" data-i18n="4">Цены</a>
+    <div class="lang" role="group" aria-label="Язык / Language">
+      <button type="button" class="lang-btn" data-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn btn-nav" href="https://health-coach-theta.vercel.app" target="_blank" rel="noopener noreferrer" data-i18n="5">Ранний доступ</a>
   </div>
 </nav>
 
@@ -1225,12 +1241,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
   <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
   <div class="hero-grid">
     <div>
-      <div class="kicker sr left short">Personal Health &amp; Wellbeing OS</div>
-      <h1 class="disp h1 sr left d1">Your body<br>runs on <em>data</em>.<br>Now so do <em>you</em>.</h1>
-      <p class="lead hero-lead sr left d2">+Life is a single operating system for your health. It ingests your medical records, biometrics, nutrition, movement and genome, and turns them into one continuously updating picture — and one set of next steps.</p>
+      <div class="kicker sr left short" data-i18n="6">Персональная ОС здоровья &amp; благополучия</div>
+      <h1 class="disp h1 sr left d1" data-i18n="7">Ваше тело<br>работает на <em>данных</em>.<br>Теперь и <em>вы</em>.</h1>
+      <p class="lead hero-lead sr left d2" data-i18n="8">+Life — единая операционная система для вашего здоровья. Она собирает медицинские записи, биометрию, питание, движение и геном и превращает их в одну постоянно обновляемую картину — и один набор следующих шагов.</p>
       <div class="hero-cta sr left d3">
-        <a class="btn btn-pri" href="https://health-coach-theta.vercel.app" target="_blank" rel="noopener noreferrer">Start for free →</a>
-        <a class="btn btn-ghost" href="#">Watch demo</a>
+        <a class="btn btn-pri" href="https://health-coach-theta.vercel.app" target="_blank" rel="noopener noreferrer" data-i18n="9">Начать бесплатно →</a>
+        <a class="btn btn-ghost" href="#" data-i18n="10">Смотреть демо</a>
       </div>
     </div>
 
@@ -1238,8 +1254,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
     <div class="hero-vis sr right d2">
     <div class="dash" aria-label="Your Health OS dashboard preview">
       <div class="dash-head">
-        <div class="dash-title">Your Health OS · Live</div>
-        <div class="dash-status"><span class="live-dot" aria-hidden="true"></span>Synced</div>
+        <div class="dash-title" data-i18n="11">Ваша ОС здоровья · Live</div>
+        <div class="dash-status" data-i18n="12"><span class="live-dot" aria-hidden="true"></span>Синхронизировано</div>
       </div>
 
       <div class="dash-hero-row">
@@ -1248,57 +1264,57 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
             <circle class="ring-track" cx="44" cy="44" r="32" fill="none" stroke-width="6"/>
             <circle class="ring-fill" cx="44" cy="44" r="32" fill="none" stroke-width="6" stroke-dasharray="168.9 201.06"/>
           </svg>
-          <div class="ring-num"><span class="n">84</span><span class="of">out of 100</span></div>
+          <div class="ring-num"><span class="n">84</span><span class="of" data-i18n="14">из 100</span></div>
         </div>
         <div class="life-callout">
-          <span class="mono" style="color:var(--tx3)">Projected</span>
-          <span class="v">+5.2 years</span>
-          <span class="l">Health span added</span>
+          <span class="mono" style="color:var(--tx3)" data-i18n="15">Прогноз</span>
+          <span class="v" data-i18n="16">+5,2 года</span>
+          <span class="l" data-i18n="17">Добавлено здоровой жизни</span>
         </div>
       </div>
 
       <div class="bm-list">
         <div class="bm-row">
           <svg class="bm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          <span class="bm-name">Heart</span>
+          <span class="bm-name" data-i18n="18">Сердце</span>
           <span class="bm-bar bar-gr"><i style="width:88%"></i></span>
           <span class="bm-val">88</span>
         </div>
         <div class="bm-row">
           <svg class="bm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3l2-6 4 12 2-6h7"/></svg>
-          <span class="bm-name">Metabolic</span>
+          <span class="bm-name" data-i18n="20">Метаболизм</span>
           <span class="bm-bar bar-am"><i style="width:70%"></i></span>
           <span class="bm-val">70</span>
         </div>
         <div class="bm-row">
           <svg class="bm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          <span class="bm-name">Longevity</span>
+          <span class="bm-name" data-i18n="22">Долголетие</span>
           <span class="bm-bar bar-gr"><i style="width:82%"></i></span>
           <span class="bm-val">82</span>
         </div>
         <div class="bm-row">
           <svg class="bm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6m0 8v6M4 12H2m20 0h-2M6 6 4.5 4.5M19.5 19.5 18 18M6 18l-1.5 1.5M19.5 4.5 18 6"/></svg>
-          <span class="bm-name">Hormonal</span>
+          <span class="bm-name" data-i18n="24">Гормоны</span>
           <span class="bm-bar bar-am"><i style="width:56%"></i></span>
           <span class="bm-val">56</span>
         </div>
         <div class="bm-row">
           <svg class="bm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <span class="bm-name">Sleep</span>
+          <span class="bm-name" data-i18n="26">Сон</span>
           <span class="bm-bar bar-gr"><i style="width:76%"></i></span>
           <span class="bm-val">76</span>
         </div>
         <div class="bm-row">
           <svg class="bm-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span class="bm-name">Immune</span>
+          <span class="bm-name" data-i18n="28">Иммунитет</span>
           <span class="bm-bar bar-am"><i style="width:68%"></i></span>
           <span class="bm-val">68</span>
         </div>
       </div>
 
       <div class="dash-insight">
-        <div class="dash-insight-head"><span class="live-dot" aria-hidden="true"></span>AI Insight · Today</div>
-        <div class="dash-insight-body">Your <strong>HRV dropped 14%</strong> after two nights below 6h sleep. Pushing tomorrow's training to Thursday raises projected recovery by <strong>+22%</strong>.</div>
+        <div class="dash-insight-head" data-i18n="30"><span class="live-dot" aria-hidden="true"></span>AI-инсайт · Сегодня</div>
+        <div class="dash-insight-body" data-i18n="31">Ваша <strong>HRV упала на 14%</strong> после двух ночей короче 6 часов. Перенос завтрашней тренировки на четверг поднимает прогноз восстановления на <strong>+22%</strong>.</div>
       </div>
     </div>
     </div>
@@ -1363,16 +1379,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
 <section class="sec s-light" id="problem">
   <div class="sec-inner">
     <div class="sec-head">
-    <div class="kicker sr">Why everything else fails</div>
-    <h2 class="disp h2 sr d1">Dozens of tools.<br>They all <em>failed</em> the same way.</h2>
-    <p class="desc sr d2">You've tried the rings, the scales, the lab kits, the chatbots, the meal apps. Each gives you one thin slice of yourself — and none of them talk to each other.</p>
+    <div class="kicker sr" data-i18n="34">Почему всё остальное не работает</div>
+    <h2 class="disp h2 sr d1" data-i18n="35">Десятки инструментов.<br>Все <em>провалились</em> одинаково.</h2>
+    <p class="desc sr d2" data-i18n="36">Вы пробовали кольца, весы, лабораторные наборы, чат-ботов, приложения для еды. Каждое даёт один тонкий срез вас — и ни одно не разговаривает с другими.</p>
     </div>
 
     <div class="prob-grid">
-      <div class="prob-card sr up d1"><span class="x" aria-hidden="true">✕</span><div class="ico" aria-hidden="true">⌚</div><div class="nm">Wearable rings</div><div class="why">Tells you your sleep was bad. Doesn't tell you why, or what to change.</div></div>
-      <div class="prob-card sr up d2"><span class="x" aria-hidden="true">✕</span><div class="ico" aria-hidden="true">🧪</div><div class="nm">Annual labs</div><div class="why">100 markers, 12 pages, no follow-up. You file it and forget it.</div></div>
-      <div class="prob-card sr up d3"><span class="x" aria-hidden="true">✕</span><div class="ico" aria-hidden="true">🥗</div><div class="nm">Diet trackers</div><div class="why">Logs calories. Has no idea what your blood, sleep or stress are doing.</div></div>
-      <div class="prob-card sr up d4"><span class="x" aria-hidden="true">✕</span><div class="ico" aria-hidden="true">🤖</div><div class="nm">AI chatbots</div><div class="why">Answers anything in general. Knows nothing about you specifically.</div></div>
+      <div class="prob-card sr up d1"><span class="x" aria-hidden="true">✕</span><div class="ico" aria-hidden="true">⌚</div><div class="nm" data-i18n="39">Умные кольца</div><div class="why" data-i18n="40">Говорит, что вы плохо спали. Не говорит почему и что менять.</div></div>
+      <div class="prob-card sr up d2"><span class="x" aria-hidden="true">✕</span><div class="ico" aria-hidden="true">🧪</div><div class="nm" data-i18n="43">Ежегодные анализы</div><div class="why" data-i18n="44">100 маркеров, 12 страниц, никакого продолжения. Вы убираете их в папку и забываете.</div></div>
+      <div class="prob-card sr up d3"><span class="x" aria-hidden="true">✕</span><div class="ico" aria-hidden="true">🥗</div><div class="nm" data-i18n="47">Трекеры питания</div><div class="why" data-i18n="48">Считают калории. Понятия не имеют, что происходит с вашей кровью, сном и стрессом.</div></div>
+      <div class="prob-card sr up d4"><span class="x" aria-hidden="true">✕</span><div class="ico" aria-hidden="true">🤖</div><div class="nm" data-i18n="51">AI-чат-боты</div><div class="why" data-i18n="52">Отвечают на всё вообще. Не знают ничего о вас конкретно.</div></div>
     </div>
 
     <div class="prob-real sr up">
@@ -1380,22 +1396,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       </div>
       <div>
-        <div class="label">The real problem</div>
-        <h3>Your health lives in twenty places. None of them know each other.</h3>
-        <p>Every app holds a tiny shard of you. Your cardiologist can't see your CGM. Your nutrition app can't see your hormone panel. You become a translator between systems that should be talking — and you lose the signal that only emerges when all of it is in one place.</p>
+        <div class="label" data-i18n="53">Настоящая проблема</div>
+        <h3 data-i18n="54">Ваше здоровье живёт в двадцати местах. Ни одно из них не знает о других.</h3>
+        <p data-i18n="55">Каждое приложение хранит крошечный осколок вас. Ваш кардиолог не видит ваш CGM. Приложение для питания не видит гормональную панель. Вы становитесь переводчиком между системами, которые должны говорить друг с другом, — и теряете сигнал, который появляется только когда всё собрано в одном месте.</p>
       </div>
     </div>
 
-    <div class="prob-arrow"><span class="ln"></span><span class="lbl">+ Life solves this ↓</span><span class="ln"></span></div>
+    <div class="prob-arrow"><span class="ln"></span><span class="lbl" data-i18n="56">+ Life решает это ↓</span><span class="ln"></span></div>
 
     <div class="prob-sol sr up">
       <div class="ico-wrap" aria-hidden="true">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
       <div>
-        <div class="label">One operating system</div>
-        <h3>One system that <em>sees everything</em>, and tells you what matters next.</h3>
-        <p>+Life pulls every signal — clinical, biometric, nutritional, behavioral, genetic — into a single living picture, then surfaces the small set of changes that actually move your trajectory. Not more data. The right next step.</p>
+        <div class="label" data-i18n="57">Одна операционная система</div>
+        <h3 data-i18n="58">Одна система, которая <em>видит всё</em> и говорит, что важно дальше.</h3>
+        <p data-i18n="59">+Life собирает каждый сигнал — клинический, биометрический, пищевой, поведенческий, генетический — в одну живую картину и выделяет небольшой набор изменений, которые действительно меняют траекторию. Не больше данных. Правильный следующий шаг.</p>
       </div>
     </div>
   </div>
@@ -1407,46 +1423,46 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
 <section class="sec s-dark" id="pillars">
   <div class="sec-inner">
     <div class="sec-head">
-    <div class="kicker sr">The five pillars</div>
-    <h2 class="disp h2 sr d1">One OS. Five streams of <em>truth</em><br>about your body.</h2>
-    <p class="desc sr d2">Every dimension of your physiology, captured continuously, modeled together. No pillar exists alone — and that's exactly the point.</p>
+    <div class="kicker sr" data-i18n="60">Пять столпов</div>
+    <h2 class="disp h2 sr d1" data-i18n="61">Одна ОС. Пять потоков <em>правды</em><br>о вашем теле.</h2>
+    <p class="desc sr d2" data-i18n="62">Каждое измерение вашей физиологии фиксируется непрерывно и моделируется вместе. Ни один столп не существует отдельно — в этом и суть.</p>
     </div>
 
     <div class="pil-grid sr up d1">
       <div class="pil-card">
-        <div class="pil-num">01 — Clinical health</div>
+        <div class="pil-num" data-i18n="63">01 — Клиническое здоровье</div>
         <div class="pil-ico" aria-hidden="true">🩺</div>
-        <div class="pil-name">Your <em>medical</em> story, decoded.</div>
-        <div class="pil-desc">Lab panels, imaging, EHR notes, prescriptions. Parsed and tracked over time, not buried in a portal.</div>
-        <div class="pil-tags"><span class="tag tag-gr">EHR</span><span class="tag tag-gr">LABS</span><span class="tag tag-lt">IMAGING</span></div>
+        <div class="pil-name" data-i18n="65">Ваша <em>медицинская</em> история, расшифрованная.</div>
+        <div class="pil-desc" data-i18n="66">Лабораторные панели, снимки, записи ЭМК, рецепты. Разобраны и отслеживаются во времени, а не погребены в портале.</div>
+        <div class="pil-tags"><span class="tag tag-gr" data-i18n="67">ЭМК</span><span class="tag tag-gr" data-i18n="68">АНАЛИЗЫ</span><span class="tag tag-lt" data-i18n="69">СНИМКИ</span></div>
       </div>
       <div class="pil-card">
-        <div class="pil-num">02 — Sleep</div>
+        <div class="pil-num" data-i18n="70">02 — Сон</div>
         <div class="pil-ico" aria-hidden="true">🌙</div>
-        <div class="pil-name">Your <em>recovery</em> engine.</div>
-        <div class="pil-desc">Stage architecture, HRV, resting HR, oxygenation. Quality, not just hours.</div>
-        <div class="pil-tags"><span class="tag tag-gr">HRV</span><span class="tag tag-gr">STAGES</span><span class="tag tag-lt">SpO₂</span></div>
+        <div class="pil-name" data-i18n="72">Ваш двигатель <em>восстановления</em>.</div>
+        <div class="pil-desc" data-i18n="73">Архитектура фаз, HRV, пульс в покое, оксигенация. Качество, а не только часы.</div>
+        <div class="pil-tags"><span class="tag tag-gr">HRV</span><span class="tag tag-gr" data-i18n="75">ФАЗЫ</span><span class="tag tag-lt">SpO₂</span></div>
       </div>
       <div class="pil-card">
-        <div class="pil-num">03 — Nutrition</div>
+        <div class="pil-num" data-i18n="77">03 — Питание</div>
         <div class="pil-ico" aria-hidden="true">🥗</div>
-        <div class="pil-name">Your <em>fuel</em> profile.</div>
-        <div class="pil-desc">Macros, micronutrients, supplement stack, glucose response. What you eat — and how you respond.</div>
-        <div class="pil-tags"><span class="tag tag-gr">MACROS</span><span class="tag tag-gr">CGM</span><span class="tag tag-lt">SUPPS</span></div>
+        <div class="pil-name" data-i18n="79">Ваш профиль <em>топлива</em>.</div>
+        <div class="pil-desc" data-i18n="80">Макросы, микронутриенты, стек добавок, глюкозный ответ. Что вы едите — и как реагируете.</div>
+        <div class="pil-tags"><span class="tag tag-gr" data-i18n="81">МАКРОСЫ</span><span class="tag tag-gr">CGM</span><span class="tag tag-lt" data-i18n="83">ДОБАВКИ</span></div>
       </div>
       <div class="pil-card">
-        <div class="pil-num">04 — Movement</div>
+        <div class="pil-num" data-i18n="84">04 — Движение</div>
         <div class="pil-ico" aria-hidden="true">⚡</div>
-        <div class="pil-name">Your <em>output</em> over time.</div>
-        <div class="pil-desc">Cardio load, strength volume, VO₂ max, recovery debt. Training as a long curve, not isolated sessions.</div>
-        <div class="pil-tags"><span class="tag tag-gr">VO₂</span><span class="tag tag-gr">LOAD</span><span class="tag tag-lt">STRENGTH</span></div>
+        <div class="pil-name" data-i18n="86">Ваша <em>отдача</em> во времени.</div>
+        <div class="pil-desc" data-i18n="87">Кардионагрузка, силовой объём, VO₂ max, долг восстановления. Тренировки как длинная кривая, а не отдельные сессии.</div>
+        <div class="pil-tags"><span class="tag tag-gr">VO₂</span><span class="tag tag-gr" data-i18n="89">НАГРУЗКА</span><span class="tag tag-lt" data-i18n="90">СИЛА</span></div>
       </div>
       <div class="pil-card">
-        <div class="pil-num">05 — Genome</div>
+        <div class="pil-num" data-i18n="91">05 — Геном</div>
         <div class="pil-ico" aria-hidden="true">🧬</div>
-        <div class="pil-name">Your <em>baseline</em> code.</div>
-        <div class="pil-desc">Polygenic risk, pharmacogenomics, methylation pathways. The static layer everything else reads against.</div>
-        <div class="pil-tags"><span class="tag tag-gr">SNPs</span><span class="tag tag-gr">PRS</span><span class="tag tag-lt">PHARMA</span></div>
+        <div class="pil-name" data-i18n="93">Ваш <em>базовый</em> код.</div>
+        <div class="pil-desc" data-i18n="94">Полигенный риск, фармакогеномика, пути метилирования. Статичный слой, относительно которого читается всё остальное.</div>
+        <div class="pil-tags"><span class="tag tag-gr">SNPs</span><span class="tag tag-gr">PRS</span><span class="tag tag-lt" data-i18n="97">ФАРМА</span></div>
       </div>
     </div>
 
@@ -1454,24 +1470,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
 
     <div class="cnst-panel sr up d1">
       <div class="cnst-copy">
-        <h3>One <em>intelligent</em> OS, learning across every pillar.</h3>
-        <p>Signals never stay siloed. Your sleep talks to your training. Your training talks to your genome. Your labs talk to your nutrition. The model finds the cross-pillar links a single specialist would never see.</p>
+        <h3 data-i18n="98">Одна <em>умная</em> ОС, которая учится на всех столпах сразу.</h3>
+        <p data-i18n="99">Сигналы не остаются в изоляции. Ваш сон говорит с тренировками. Тренировки — с геномом. Анализы — с питанием. Модель находит межстолповые связи, которые один специалист никогда не увидит.</p>
         <div class="cnst-out">
-          <div class="row"><span class="dot" aria-hidden="true"></span><span class="t">ApoB rising → <span>tighten saturated fat, add zone-2 volume</span></span></div>
-          <div class="row"><span class="dot" aria-hidden="true"></span><span class="t">Low ferritin × HRV drop → <span>iron retest, deload week</span></span></div>
-          <div class="row"><span class="dot" aria-hidden="true"></span><span class="t">MTHFR variant + low B12 → <span>switch to methylfolate</span></span></div>
-          <div class="row"><span class="dot" aria-hidden="true"></span><span class="t">Cortisol AM × poor deep sleep → <span>shift caffeine cutoff to 10am</span></span></div>
+          <div class="row"><span class="dot" aria-hidden="true"></span><span class="t" data-i18n="100">ApoB растёт → <span>меньше насыщенных жиров, больше зоны 2</span></span></div>
+          <div class="row"><span class="dot" aria-hidden="true"></span><span class="t" data-i18n="101">Низкий ферритин × падение HRV → <span>пересдать железо, разгрузочная неделя</span></span></div>
+          <div class="row"><span class="dot" aria-hidden="true"></span><span class="t" data-i18n="102">Вариант MTHFR + низкий B12 → <span>перейти на метилфолат</span></span></div>
+          <div class="row"><span class="dot" aria-hidden="true"></span><span class="t" data-i18n="103">Утренний кортизол × плохой глубокий сон → <span>сдвинуть кофеин до 10:00</span></span></div>
         </div>
       </div>
       <div class="cnst-canvas-wrap">
         <canvas id="constellationCanvas" aria-hidden="true"></canvas>
-        <div class="cnst-cap"><span class="live-dot" aria-hidden="true"></span>Live · cross-pillar map</div>
+        <div class="cnst-cap" data-i18n="104"><span class="live-dot" aria-hidden="true"></span>Live · карта связей</div>
         <div class="cnst-legend" aria-hidden="true">
-          <div class="li"><i style="background:#ff6b6b"></i>Clinical</div>
-          <div class="li"><i style="background:#4dd4ff"></i>Sleep</div>
-          <div class="li"><i style="background:#39ff6e"></i>Nutrition</div>
-          <div class="li"><i style="background:#ffa53b"></i>Movement</div>
-          <div class="li"><i style="background:#c084fc"></i>Genome</div>
+          <div class="li" data-i18n="105"><i style="background:#ff6b6b"></i>Клиника</div>
+          <div class="li" data-i18n="106"><i style="background:#4dd4ff"></i>Сон</div>
+          <div class="li" data-i18n="107"><i style="background:#39ff6e"></i>Питание</div>
+          <div class="li" data-i18n="108"><i style="background:#ffa53b"></i>Движение</div>
+          <div class="li" data-i18n="109"><i style="background:#c084fc"></i>Геном</div>
         </div>
       </div>
     </div>
@@ -1484,9 +1500,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
 <section class="sec s-dark2" id="features">
   <div class="sec-inner">
     <div class="sec-head">
-    <div class="kicker sr">What you get</div>
-    <h2 class="disp h2 sr d1">Five pillars.<br>One <em>complete</em> picture.</h2>
-    <p class="desc sr d2">Each pillar gets its own deep view, but no view stands alone. Every chart is read by every other.</p>
+    <div class="kicker sr" data-i18n="110">Что вы получаете</div>
+    <h2 class="disp h2 sr d1" data-i18n="111">Пять столпов.<br>Одна <em>полная</em> картина.</h2>
+    <p class="desc sr d2" data-i18n="112">У каждого столпа свой глубокий экран, но ни один экран не живёт отдельно. Каждый график читается всеми остальными.</p>
     </div>
 
     <div class="feat-stack">
@@ -1494,19 +1510,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
       <!-- ROW 1 — Clinical -->
       <div class="feat-row sr up">
         <div class="feat-copy">
-          <div class="feat-meta">01 — Clinical health</div>
-          <h3>Every lab marker in <em>context</em>, not just in range.</h3>
-          <p>Not just "in range" or "out of range". +Life shows you where each marker sits inside the optimal band, how it's trending across years, and which other pillars are pushing it.</p>
+          <div class="feat-meta" data-i18n="113">01 — Клиническое здоровье</div>
+          <h3 data-i18n="114">Каждый маркер в <em>контексте</em>, а не просто «в норме».</h3>
+          <p data-i18n="115">Не просто «в норме» или «вне нормы». +Life показывает, где каждый маркер находится внутри оптимального диапазона, как он движется годами и какие другие столпы на него давят.</p>
         </div>
         <div class="feat-vis">
           <div class="f-bm">
-            <div class="f-bm-head"><span class="t">Cardiometabolic panel</span><span class="mono">12 markers · today</span></div>
-            <div class="f-bm-row"><span class="nm">ApoB</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:38%"></span></span><span class="vl">78 mg/dL</span></div>
-            <div class="f-bm-row"><span class="nm">LDL-C</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:55%"></span></span><span class="vl">102 mg/dL</span></div>
-            <div class="f-bm-row"><span class="nm">HDL-C</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:62%"></span></span><span class="vl">61 mg/dL</span></div>
-            <div class="f-bm-row"><span class="nm">Lp(a)</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:22%"></span></span><span class="vl">14 nmol/L</span></div>
-            <div class="f-bm-row"><span class="nm">hs-CRP</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:48%"></span></span><span class="vl">0.6 mg/L</span></div>
-            <div class="f-bm-row"><span class="nm">Fasting glucose</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:50%"></span></span><span class="vl">88 mg/dL</span></div>
+            <div class="f-bm-head"><span class="t" data-i18n="116">Кардиометаболическая панель</span><span class="mono" data-i18n="117">12 маркеров · сегодня</span></div>
+            <div class="f-bm-row"><span class="nm">ApoB</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:38%"></span></span><span class="vl" data-i18n="119">78 мг/дл</span></div>
+            <div class="f-bm-row"><span class="nm">LDL-C</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:55%"></span></span><span class="vl" data-i18n="121">102 мг/дл</span></div>
+            <div class="f-bm-row"><span class="nm">HDL-C</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:62%"></span></span><span class="vl" data-i18n="123">61 мг/дл</span></div>
+            <div class="f-bm-row"><span class="nm">Lp(a)</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:22%"></span></span><span class="vl" data-i18n="125">14 нмоль/л</span></div>
+            <div class="f-bm-row"><span class="nm" data-i18n="126">вч-СРБ</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:48%"></span></span><span class="vl" data-i18n="127">0,6 мг/л</span></div>
+            <div class="f-bm-row"><span class="nm" data-i18n="128">Глюкоза натощак</span><span class="f-range"><span class="lab"></span><span class="opt"></span><span class="lab2"></span><span class="mark" style="left:50%"></span></span><span class="vl" data-i18n="129">88 мг/дл</span></div>
           </div>
         </div>
       </div>
@@ -1514,16 +1530,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
       <!-- ROW 2 — Sleep -->
       <div class="feat-row flip sr up">
         <div class="feat-copy">
-          <div class="feat-meta">02 — Sleep</div>
-          <h3>Sleep as <em>architecture</em>, not a single number.</h3>
-          <p>See deep, REM and light separately. Watch how last night's structure changes today's HRV, today's mood, today's tolerance for training. The model learns your personal recovery curve.</p>
+          <div class="feat-meta" data-i18n="130">02 — Сон</div>
+          <h3 data-i18n="131">Сон как <em>архитектура</em>, а не одна цифра.</h3>
+          <p data-i18n="132">Смотрите глубокий, REM и лёгкий сон по отдельности. Наблюдайте, как структура прошлой ночи меняет сегодняшнюю HRV, настроение и переносимость тренировки. Модель учит вашу личную кривую восстановления.</p>
         </div>
         <div class="feat-vis">
           <div class="f-sleep">
             <div class="f-sleep-head">
               <div>
-                <div class="mono" style="color:var(--tx3)">Tonight's sleep</div>
-                <div style="font-family:var(--fd);font-size:34px;color:var(--tx);line-height:1;margin-top:6px">7h 42m</div>
+                <div class="mono" style="color:var(--tx3)" data-i18n="133">Сон этой ночью</div>
+                <div style="font-family:var(--fd);font-size:34px;color:var(--tx);line-height:1;margin-top:6px" data-i18n="134">7 ч 42 м</div>
               </div>
               <div class="ring" style="width:72px;height:72px" aria-hidden="true">
                 <svg viewBox="0 0 88 88">
@@ -1534,14 +1550,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
               </div>
             </div>
             <div>
-              <div class="mono" style="color:var(--tx3);margin-bottom:8px">Stage architecture</div>
+              <div class="mono" style="color:var(--tx3);margin-bottom:8px" data-i18n="136">Архитектура фаз</div>
               <div class="f-sleep-stages" aria-hidden="true"><span class="deep"></span><span class="rem"></span><span class="light"></span></div>
-              <div class="f-sleep-leg"><span class="li"><i style="background:#3b82f6"></i>Deep 1h 42m</span><span class="li"><i style="background:#8b5cf6"></i>REM 1h 14m</span><span class="li"><i style="background:#6b7280"></i>Light 4h 46m</span></div>
+              <div class="f-sleep-leg"><span class="li" data-i18n="137"><i style="background:#3b82f6"></i>Глубокий 1 ч 42 м</span><span class="li" data-i18n="138"><i style="background:#8b5cf6"></i>REM 1 ч 14 м</span><span class="li" data-i18n="139"><i style="background:#6b7280"></i>Лёгкий 4 ч 46 м</span></div>
             </div>
             <div class="f-sleep-stats">
-              <div class="stat"><span class="n">52</span><span class="l">HRV ms</span></div>
-              <div class="stat"><span class="n">48</span><span class="l">Resting HR</span></div>
-              <div class="stat"><span class="n">96%</span><span class="l">SpO₂ avg</span></div>
+              <div class="stat"><span class="n">52</span><span class="l" data-i18n="141">HRV мс</span></div>
+              <div class="stat"><span class="n">48</span><span class="l" data-i18n="143">Пульс в покое</span></div>
+              <div class="stat"><span class="n">96%</span><span class="l" data-i18n="145">SpO₂ средн.</span></div>
             </div>
           </div>
         </div>
@@ -1550,31 +1566,31 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
       <!-- ROW 3 — Nutrition -->
       <div class="feat-row sr up">
         <div class="feat-copy">
-          <div class="feat-meta">03 — Nutrition</div>
-          <h3>Food, supplements and your <em>response</em>, in one frame.</h3>
-          <p>Macros, micronutrients and your personal supplement stack — paired with your CGM curves and lab markers, so a meal is never just calories. It's a measurable change in your blood.</p>
+          <div class="feat-meta" data-i18n="146">03 — Питание</div>
+          <h3 data-i18n="147">Еда, добавки и ваш <em>ответ</em> — в одном кадре.</h3>
+          <p data-i18n="148">Макросы, микронутриенты и ваш личный стек добавок — вместе с кривыми CGM и лабораторными маркерами, чтобы приём пищи никогда не был просто калориями. Это измеримое изменение в вашей крови.</p>
         </div>
         <div class="feat-vis">
           <div class="f-nut">
             <div class="f-nut-card">
-              <div class="hd">Today · Macros</div>
-              <div class="f-nut-row"><span>Protein</span><span class="v">142 g</span></div>
+              <div class="hd" data-i18n="149">Сегодня · Макросы</div>
+              <div class="f-nut-row"><span data-i18n="150">Белки</span><span class="v" data-i18n="151">142 г</span></div>
               <div class="bar bar-gr"><i style="width:78%"></i></div>
-              <div class="f-nut-row"><span>Carbs</span><span class="v">218 g</span></div>
+              <div class="f-nut-row"><span data-i18n="152">Углеводы</span><span class="v" data-i18n="153">218 г</span></div>
               <div class="bar bar-am"><i style="width:62%"></i></div>
-              <div class="f-nut-row"><span>Fat</span><span class="v">74 g</span></div>
+              <div class="f-nut-row"><span data-i18n="154">Жиры</span><span class="v" data-i18n="155">74 г</span></div>
               <div class="bar bar-gr"><i style="width:55%"></i></div>
-              <div class="f-nut-row"><span>Fiber</span><span class="v">38 g</span></div>
+              <div class="f-nut-row"><span data-i18n="156">Клетчатка</span><span class="v" data-i18n="157">38 г</span></div>
               <div class="bar bar-gr"><i style="width:84%"></i></div>
             </div>
             <div class="f-nut-card">
-              <div class="hd">Stack · 6 of 7 logged</div>
-              <div class="f-supp-row"><span class="dot" aria-hidden="true"></span>Vitamin D3 5000 IU<span class="v">8:12 AM</span></div>
-              <div class="f-supp-row"><span class="dot" aria-hidden="true"></span>Omega-3 2g<span class="v">8:12 AM</span></div>
-              <div class="f-supp-row"><span class="dot" aria-hidden="true"></span>Magnesium glyc.<span class="v">10:04 PM</span></div>
-              <div class="f-supp-row"><span class="dot" aria-hidden="true"></span>Methylfolate<span class="v">8:12 AM</span></div>
-              <div class="f-supp-row"><span class="dot" aria-hidden="true"></span>Creatine 5g<span class="v">5:30 PM</span></div>
-              <div class="f-supp-row"><span class="dot" aria-hidden="true" style="background:#6a6560;box-shadow:none"></span><span style="color:var(--tx3)">B12 — pending</span></div>
+              <div class="hd" data-i18n="158">Стек · 6 из 7 отмечено</div>
+              <div class="f-supp-row" data-i18n="159"><span class="dot" aria-hidden="true"></span>Витамин D3 5000 МЕ<span class="v">8:12</span></div>
+              <div class="f-supp-row" data-i18n="160"><span class="dot" aria-hidden="true"></span>Омега-3 2 г<span class="v">8:12</span></div>
+              <div class="f-supp-row" data-i18n="161"><span class="dot" aria-hidden="true"></span>Магния глицинат<span class="v">22:04</span></div>
+              <div class="f-supp-row" data-i18n="162"><span class="dot" aria-hidden="true"></span>Метилфолат<span class="v">8:12</span></div>
+              <div class="f-supp-row" data-i18n="163"><span class="dot" aria-hidden="true"></span>Креатин 5 г<span class="v">17:30</span></div>
+              <div class="f-supp-row"><span class="dot" aria-hidden="true" style="background:#6a6560;box-shadow:none"></span><span style="color:var(--tx3)" data-i18n="164">B12 — ожидает</span></div>
             </div>
           </div>
         </div>
@@ -1583,23 +1599,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
       <!-- ROW 4 — AI cross-pillar chat -->
       <div class="feat-row flip sr up">
         <div class="feat-copy">
-          <div class="feat-meta">04 — Cross-pillar AI</div>
-          <h3>Ask anything. Get an <em>answer</em> built from all of you.</h3>
-          <p>Not generic advice. Every reply pulls from your labs, sleep, training, food, and genome at once — the way a brilliant doctor with infinite time would actually think.</p>
+          <div class="feat-meta" data-i18n="165">04 — Межстолповой AI</div>
+          <h3 data-i18n="166">Спросите что угодно. Получите <em>ответ</em>, собранный из всего вас.</h3>
+          <p data-i18n="167">Не общие советы. Каждый ответ одновременно берёт ваши анализы, сон, тренировки, еду и геном — так, как думал бы блестящий врач с бесконечным временем.</p>
         </div>
         <div class="feat-vis">
           <div class="f-chat">
             <div>
-              <div class="lbl">You · 2:14 PM</div>
-              <div class="msg me">Why am I so flat in the gym this week?</div>
+              <div class="lbl" data-i18n="168">Вы · 14:14</div>
+              <div class="msg me" data-i18n="169">Почему я на этой неделе такой вялый в зале?</div>
             </div>
             <div>
-              <div class="lbl">+Life · synthesis</div>
-              <div class="msg agent">Three signals point the same way. Your <strong>HRV is down 18%</strong> over 5 days. <strong>Ferritin trended low</strong> on your last panel. And you've slept under 6h on 4 of the last 7 nights. This is recovery debt, not a strength plateau.</div>
+              <div class="lbl" data-i18n="170">+Life · синтез</div>
+              <div class="msg agent" data-i18n="171">Три сигнала указывают в одну сторону. Ваша <strong>HRV упала на 18%</strong> за 5 дней. <strong>Ферритин снизился</strong> в последней панели. И вы спали меньше 6 часов 4 ночи из последних 7. Это долг восстановления, а не силовое плато.</div>
             </div>
             <div>
-              <div class="lbl">+Life · suggested move</div>
-              <div class="msg agent">Swap tomorrow's heavy session for <strong>zone-2 + mobility</strong>, push your caffeine cutoff to 10am, and re-test ferritin in 2 weeks. Projected HRV recovery: <strong>+22% in 7 days</strong>.</div>
+              <div class="lbl" data-i18n="172">+Life · предлагаемый шаг</div>
+              <div class="msg agent" data-i18n="173">Замените завтрашнюю тяжёлую сессию на <strong>зону 2 + мобильность</strong>, сдвиньте кофеин до 10:00 и пересдайте ферритин через 2 недели. Прогноз восстановления HRV: <strong>+22% за 7 дней</strong>.</div>
             </div>
           </div>
         </div>
@@ -1616,53 +1632,53 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
   <div class="sec-inner">
     <div class="ehr-grid">
       <div>
-        <div class="kicker sr">EHR · Records connect</div>
-        <h2 class="disp h2 sr d1">Connect your records once.<br><em>Done</em> forever.</h2>
-        <p class="desc sr d2">Every visit, every lab, every prescription — pulled directly from your providers, parsed, and added to your living record. You never re-enter anything.</p>
+        <div class="kicker sr" data-i18n="174">ЭМК · Подключение записей</div>
+        <h2 class="disp h2 sr d1" data-i18n="175">Подключите записи один раз.<br><em>Готово</em> навсегда.</h2>
+        <p class="desc sr d2" data-i18n="176">Каждый визит, каждый анализ, каждый рецепт — напрямую от ваших клиник, разобранные и добавленные в вашу живую карту. Вы никогда ничего не вводите заново.</p>
         <div class="ehr-bullets">
           <div class="ehr-bullet sr d1">
             <div class="ck" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div><h4>Direct from your providers</h4><p>Connect Epic, Cerner, Oracle Health and 250+ U.S. health systems through certified FHIR pipes.</p></div>
+            <div><h4 data-i18n="177">Напрямую от ваших клиник</h4><p data-i18n="178">Подключайте Epic, Cerner, Oracle Health и 250+ систем здравоохранения США через сертифицированные каналы FHIR.</p></div>
           </div>
           <div class="ehr-bullet sr d2">
             <div class="ck" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div><h4>Parsed into structured data</h4><p>Free-text notes become structured markers, trends and timelines — not PDFs you'll never re-open.</p></div>
+            <div><h4 data-i18n="179">Разобрано в структурированные данные</h4><p data-i18n="180">Свободный текст заметок становится структурированными маркерами, трендами и таймлайнами — а не PDF, которые вы никогда не откроете.</p></div>
           </div>
           <div class="ehr-bullet sr d3">
             <div class="ck" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div><h4>Encrypted and yours alone</h4><p>HIPAA-grade encryption end-to-end. Your data never trains a model. Export it, delete it, move it, anytime.</p></div>
+            <div><h4 data-i18n="181">Зашифровано и принадлежит только вам</h4><p data-i18n="182">Сквозное шифрование уровня HIPAA. Ваши данные никогда не обучают модель. Экспортируйте, удаляйте, переносите — в любой момент.</p></div>
           </div>
         </div>
       </div>
 
       <div class="sr right">
         <div class="ehr-conn">
-          <div class="ehr-conn-head"><span class="t">Connected providers</span><span class="mono" style="color:var(--gr)">4 active</span></div>
+          <div class="ehr-conn-head"><span class="t" data-i18n="183">Подключённые клиники</span><span class="mono" style="color:var(--gr)" data-i18n="184">4 активных</span></div>
           <div class="prov-row">
             <div class="prov-logo" style="background:#cb1f27" aria-hidden="true">E</div>
-            <div><div class="prov-name">Epic MyChart</div><span class="prov-meta">Stanford Health · last sync 2m ago</span></div>
-            <span class="pill pill-gr">Synced</span>
+            <div><div class="prov-name">Epic MyChart</div><span class="prov-meta" data-i18n="187">Stanford Health · синхронизация 2 мин назад</span></div>
+            <span class="pill pill-gr" data-i18n="188">Синхронизировано</span>
           </div>
           <div class="prov-row">
             <div class="prov-logo" style="background:linear-gradient(135deg,#ff6b6b,#ff9472)" aria-hidden="true">A</div>
-            <div><div class="prov-name">Apple Health Records</div><span class="prov-meta">Personal · last sync 14m ago</span></div>
-            <span class="pill pill-gr">Synced</span>
+            <div><div class="prov-name">Apple Health Records</div><span class="prov-meta" data-i18n="191">Личное · синхронизация 14 мин назад</span></div>
+            <span class="pill pill-gr" data-i18n="192">Синхронизировано</span>
           </div>
           <div class="prov-row">
             <div class="prov-logo" style="background:#0d7e7e" aria-hidden="true">b</div>
-            <div><div class="prov-name">b.well</div><span class="prov-meta">Aggregator · last sync 38m ago</span></div>
-            <span class="pill pill-gr">Synced</span>
+            <div><div class="prov-name">b.well</div><span class="prov-meta" data-i18n="195">Агрегатор · синхронизация 38 мин назад</span></div>
+            <span class="pill pill-gr" data-i18n="196">Синхронизировано</span>
           </div>
           <div class="prov-row">
             <div class="prov-logo" style="background:#3a3a3f" aria-hidden="true">O</div>
-            <div><div class="prov-name">Oracle Health</div><span class="prov-meta">Kaiser · pending auth</span></div>
-            <span class="pill pill-lt">Connect</span>
+            <div><div class="prov-name">Oracle Health</div><span class="prov-meta" data-i18n="199">Kaiser · ожидает авторизации</span></div>
+            <span class="pill pill-lt" data-i18n="200">Подключить</span>
           </div>
         </div>
-        <div class="ehr-flow"><span class="ln"></span><span class="lbl">Encrypted · auto-parsed</span><span class="ln"></span></div>
+        <div class="ehr-flow"><span class="ln"></span><span class="lbl" data-i18n="201">Зашифровано · разобрано автоматически</span><span class="ln"></span></div>
         <div class="ehr-dest">
           <div class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 8v6M4 12H2m20 0h-2"/><circle cx="12" cy="12" r="4"/></svg></div>
-          <div class="t">Your living health record<span>One source of truth · always current</span></div>
+          <div class="t" data-i18n="202">Ваша живая медицинская карта<span>Один источник истины · всегда актуальна</span></div>
         </div>
       </div>
     </div>
@@ -1676,33 +1692,33 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
   <div class="sec-inner">
     <div class="voice-grid">
       <div>
-        <div class="kicker sr">Voice input</div>
-        <h2 class="disp h2 sr d1">Just <em>talk</em> to it.<br>Logging is over.</h2>
-        <p class="desc sr d2">Speak a meal, a workout, a symptom, a supplement. +Life parses, normalizes and files it — across the right pillars — with confirmation, not friction.</p>
+        <div class="kicker sr" data-i18n="203">Голосовой ввод</div>
+        <h2 class="disp h2 sr d1" data-i18n="204">Просто <em>скажите</em>.<br>Ручной учёт закончился.</h2>
+        <p class="desc sr d2" data-i18n="205">Произнесите приём пищи, тренировку, симптом, добавку. +Life разбирает, нормализует и раскладывает по нужным столпам — с подтверждением, без трения.</p>
         <div class="stack" style="margin-top:30px;gap:18px">
           <div class="ehr-bullet sr d1">
             <div class="ck" aria-hidden="true" style="background:rgba(57,255,110,0.12);border-color:rgba(57,255,110,0.3);color:var(--gr)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
-            <div><h4 style="color:var(--tx)">No forms. No taxonomy.</h4><p style="color:var(--tx2)">Speak in your own words. The model maps "two coffees and a bowl of yogurt" to actual macros and timing.</p></div>
+            <div><h4 style="color:var(--tx)" data-i18n="206">Никаких форм. Никакой таксономии.</h4><p style="color:var(--tx2)" data-i18n="207">Говорите своими словами. Модель переводит «два кофе и миску йогурта» в реальные макросы и время.</p></div>
           </div>
           <div class="ehr-bullet sr d2">
             <div class="ck" aria-hidden="true" style="background:rgba(57,255,110,0.12);border-color:rgba(57,255,110,0.3);color:var(--gr)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <div><h4 style="color:var(--tx)">Confirmed before it lands</h4><p style="color:var(--tx2)">Every entry shows you what was understood and where it was filed. Tap to correct, never twice.</p></div>
+            <div><h4 style="color:var(--tx)" data-i18n="208">Подтверждение до записи</h4><p style="color:var(--tx2)" data-i18n="209">Каждая запись показывает, что было понято и куда сохранено. Одно касание, чтобы поправить — и никогда дважды.</p></div>
           </div>
           <div class="ehr-bullet sr d3">
             <div class="ck" aria-hidden="true" style="background:rgba(57,255,110,0.12);border-color:rgba(57,255,110,0.3);color:var(--gr)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div><h4 style="color:var(--tx)">10 seconds, end of day</h4><p style="color:var(--tx2)">A 10-second voice memo replaces 10 minutes of tapping across three apps. That's the only logging you do.</p></div>
+            <div><h4 style="color:var(--tx)" data-i18n="210">10 секунд в конце дня</h4><p style="color:var(--tx2)" data-i18n="211">10-секундная голосовая заметка заменяет 10 минут тыканья в трёх приложениях. Это весь учёт, который вы ведёте.</p></div>
           </div>
         </div>
       </div>
 
       <div class="voice-mock sr right">
-        <div class="voice-head"><span class="t">Voice log · Tuesday</span><span class="rec"><i aria-hidden="true"></i>Listening</span></div>
-        <div class="v-grp right"><span class="v-lbl">You · 7:42 PM</span><div class="v-msg me">"Had grilled salmon, half a sweet potato, big salad with olive oil. Took my magnesium."</div></div>
-        <div class="v-sys">Parsed · 4 items</div>
-        <div class="v-grp"><span class="v-lbl">+Life · confirmed</span><div class="v-msg ai">Logged dinner: <strong>~38g protein, 32g carbs, 22g fat</strong>. Filed magnesium glycinate to your <strong>evening stack</strong>. Updated today's macro totals.</div></div>
-        <div class="v-grp right"><span class="v-lbl">You · 7:43 PM</span><div class="v-msg me">"Felt a little wired today, slept poorly."</div></div>
-        <div class="v-grp"><span class="v-lbl">+Life · cross-pillar</span><div class="v-msg ai">Noted. I'm seeing your <strong>caffeine logged at 3:40 PM</strong>. Want me to suggest a 10am cutoff for the rest of the week and watch HRV?</div></div>
-        <div class="v-mic" aria-hidden="true"><span>Tap to speak</span><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="voice-head"><span class="t" data-i18n="212">Голосовой лог · Вторник</span><span class="rec" data-i18n="213"><i aria-hidden="true"></i>Слушаю</span></div>
+        <div class="v-grp right"><span class="v-lbl" data-i18n="214">Вы · 19:42</span><div class="v-msg me" data-i18n="215">«Ел лосось на гриле, половину батата, большой салат с оливковым маслом. Принял магний.»</div></div>
+        <div class="v-sys" data-i18n="216">Разобрано · 4 позиции</div>
+        <div class="v-grp"><span class="v-lbl" data-i18n="217">+Life · подтверждено</span><div class="v-msg ai" data-i18n="218">Записан ужин: <strong>~38 г белка, 32 г углеводов, 22 г жиров</strong>. Магния глицинат добавлен в ваш <strong>вечерний стек</strong>. Итоги макросов за день обновлены.</div></div>
+        <div class="v-grp right"><span class="v-lbl" data-i18n="219">Вы · 19:43</span><div class="v-msg me" data-i18n="220">«Сегодня немного на взводе, спал плохо.»</div></div>
+        <div class="v-grp"><span class="v-lbl" data-i18n="221">+Life · межстолповой анализ</span><div class="v-msg ai" data-i18n="222">Принято. Вижу <strong>кофеин, записанный в 15:40</strong>. Предложить отсечку в 10:00 до конца недели и следить за HRV?</div></div>
+        <div class="v-mic" aria-hidden="true"><span data-i18n="223">Нажмите, чтобы говорить</span><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
       </div>
     </div>
   </div>
@@ -1714,28 +1730,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
 <section class="sec s-light" id="insight">
   <div class="sec-inner">
     <div class="sec-head">
-    <div class="kicker sr">How it thinks</div>
-    <h2 class="disp h2 sr d1">Every insight comes with its <em>reasoning</em>.</h2>
-    <p class="desc sr d2">Nothing is a black box. Every recommendation shows you exactly which signals it pulled, how it combined them, and what it concluded — so you can trust it, or push back.</p>
+    <div class="kicker sr" data-i18n="224">Как это думает</div>
+    <h2 class="disp h2 sr d1" data-i18n="225">Каждый инсайт приходит со своим <em>обоснованием</em>.</h2>
+    <p class="desc sr d2" data-i18n="226">Никакого чёрного ящика. Каждая рекомендация показывает, какие именно сигналы она взяла, как их соединила и к чему пришла — чтобы вы могли ей доверять или возразить.</p>
     </div>
 
     <div class="reason-panel sr up">
       <div class="reason-case">
-        <div class="meta">Case · low energy, week of Apr 22</div>
-        <h3>From "I'm flat" to a <em>specific</em> next move, in five steps.</h3>
-        <p>A real example of how +Life chained four pillars together to find the actual cause — and the smallest change that fixes it.</p>
+        <div class="meta" data-i18n="227">Кейс · упадок сил, неделя 22 апреля</div>
+        <h3 data-i18n="228">От «я вялый» к <em>конкретному</em> следующему шагу за пять этапов.</h3>
+        <p data-i18n="229">Реальный пример того, как +Life связала четыре столпа, чтобы найти настоящую причину — и самое маленькое изменение, которое её устраняет.</p>
         <div style="margin-top:24px;display:flex;align-items:center;gap:12px">
-          <span class="mono" style="color:var(--gr2)">Confidence</span>
+          <span class="mono" style="color:var(--gr2)" data-i18n="230">Уверенность</span>
           <div style="flex:1;max-width:140px" class="bar bar-gr"><i style="width:88%;background:var(--gr2)"></i></div>
           <span style="font-family:var(--fm);font-size:11px;color:var(--tx-lt)">88%</span>
         </div>
       </div>
       <div class="reason-chain">
-        <div class="reason-step"><div class="num">1</div><div class="body"><span class="lab">Trigger</span>You reported low energy 3 days running, gym sessions felt heavy.</div></div>
-        <div class="reason-step"><div class="num">2</div><div class="body"><span class="lab">Sleep pillar</span>HRV down <strong>18%</strong> over 5 nights. Deep sleep averaging <strong>52 min</strong>, vs your 84-min baseline.</div></div>
-        <div class="reason-step"><div class="num">3</div><div class="body"><span class="lab">Clinical pillar</span>Last panel showed <strong>ferritin at 38 ng/mL</strong> — within lab range, but in your bottom quartile historically.</div></div>
-        <div class="reason-step"><div class="num">4</div><div class="body"><span class="lab">Nutrition pillar</span>Iron intake fell to <strong>~9mg/day</strong> after you cut red meat 6 weeks ago. No replacement source logged.</div></div>
-        <div class="reason-step final"><div class="num">5</div><div class="body"><span class="lab">Conclusion · suggested move</span>Recovery debt + iron shortfall, not training plateau. <strong>Re-test ferritin in 14 days, add iron-rich meals 3x/week, deload one cycle.</strong> Projected HRV recovery: +22% in a week.</div></div>
+        <div class="reason-step"><div class="num">1</div><div class="body" data-i18n="233"><span class="lab">Триггер</span>Вы сообщили об упадке сил 3 дня подряд, тренировки шли тяжело.</div></div>
+        <div class="reason-step"><div class="num">2</div><div class="body" data-i18n="235"><span class="lab">Столп «Сон»</span>HRV снизилась на <strong>18%</strong> за 5 ночей. Глубокий сон в среднем <strong>52 мин</strong> против вашей базы в 84 мин.</div></div>
+        <div class="reason-step"><div class="num">3</div><div class="body" data-i18n="237"><span class="lab">Столп «Клиника»</span>Последняя панель показала <strong>ферритин 38 нг/мл</strong> — в пределах нормы лаборатории, но в вашей нижней четверти исторически.</div></div>
+        <div class="reason-step"><div class="num">4</div><div class="body" data-i18n="239"><span class="lab">Столп «Питание»</span>Потребление железа упало до <strong>~9 мг/день</strong> после того, как вы 6 недель назад убрали красное мясо. Замены в логе нет.</div></div>
+        <div class="reason-step final"><div class="num">5</div><div class="body" data-i18n="241"><span class="lab">Вывод · предлагаемый шаг</span>Долг восстановления + дефицит железа, а не тренировочное плато. <strong>Пересдать ферритин через 14 дней, добавить богатые железом блюда 3 раза в неделю, разгрузить один цикл.</strong> Прогноз восстановления HRV: +22% за неделю.</div></div>
       </div>
     </div>
   </div>
@@ -1748,48 +1764,48 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
   <div class="sec-inner">
     <div class="coun-grid">
       <div>
-        <div class="kicker sr">AI council</div>
-        <h2 class="disp h2 sr d1">An <em>AI council</em> of specialists, one calm answer.</h2>
-        <p class="desc sr d2">Behind every recommendation, multiple specialist agents debate your case from their lens — cardiology, endocrinology, sleep, gut, behavior. You see the synthesis. You can also see them argue.</p>
+        <div class="kicker sr" data-i18n="242">AI-совет</div>
+        <h2 class="disp h2 sr d1" data-i18n="243"><em>AI-совет</em> специалистов — один спокойный ответ.</h2>
+        <p class="desc sr d2" data-i18n="244">За каждой рекомендацией несколько агентов-специалистов обсуждают ваш случай со своей точки зрения — кардиология, эндокринология, сон, ЖКТ, поведение. Вы видите синтез. А можете посмотреть и сам спор.</p>
 
         <div class="coun-list">
           <div class="coun-agent sr d1">
             <div class="coun-ico" style="background:rgba(99,102,241,0.12);color:#818cf8" aria-hidden="true">🫀</div>
-            <div><div class="coun-name">Cardiology</div><span class="coun-style">Conservative · risk-first</span></div>
-            <div class="coun-desc">ApoB, Lp(a), CAC, BP — long-arc cardiovascular risk.</div>
+            <div><div class="coun-name" data-i18n="246">Кардиология</div><span class="coun-style" data-i18n="247">Консервативно · риск в первую очередь</span></div>
+            <div class="coun-desc" data-i18n="248">ApoB, Lp(a), CAC, давление — сердечно-сосудистый риск на длинной дистанции.</div>
           </div>
           <div class="coun-agent sr d2">
             <div class="coun-ico" style="background:rgba(251,146,60,0.12);color:#fb923c" aria-hidden="true">🥗</div>
-            <div><div class="coun-name">Gastroenterology</div><span class="coun-style">Empirical · gut-first</span></div>
-            <div class="coun-desc">Microbiome, fiber load, food sensitivities, transit.</div>
+            <div><div class="coun-name" data-i18n="250">Гастроэнтерология</div><span class="coun-style" data-i18n="251">Эмпирически · ЖКТ в первую очередь</span></div>
+            <div class="coun-desc" data-i18n="252">Микробиом, клетчатка, пищевые чувствительности, транзит.</div>
           </div>
           <div class="coun-agent sr d3">
             <div class="coun-ico" style="background:rgba(77,212,255,0.12);color:#4dd4ff" aria-hidden="true">😴</div>
-            <div><div class="coun-name">Sleep medicine</div><span class="coun-style">Evidence-led · stage-aware</span></div>
-            <div class="coun-desc">Architecture, HRV recovery, light timing.</div>
+            <div><div class="coun-name" data-i18n="254">Медицина сна</div><span class="coun-style" data-i18n="255">На основе данных · с учётом фаз</span></div>
+            <div class="coun-desc" data-i18n="256">Архитектура, восстановление HRV, тайминг света.</div>
           </div>
           <div class="coun-agent sr d4">
             <div class="coun-ico" style="background:rgba(192,132,252,0.12);color:#c084fc" aria-hidden="true">🧬</div>
-            <div><div class="coun-name">Genomics</div><span class="coun-style">Variant-aware · pathway-first</span></div>
-            <div class="coun-desc">SNPs, PRS, methylation, pharmacogenomics.</div>
+            <div><div class="coun-name" data-i18n="258">Геномика</div><span class="coun-style" data-i18n="259">С учётом вариантов · пути в первую очередь</span></div>
+            <div class="coun-desc" data-i18n="260">SNP, PRS, метилирование, фармакогеномика.</div>
           </div>
           <div class="coun-agent sr d5">
             <div class="coun-ico" style="background:rgba(241,196,15,0.12);color:var(--am)" aria-hidden="true">⚖️</div>
-            <div><div class="coun-name">Endocrinology</div><span class="coun-style">Hormonal · cycle-aware</span></div>
-            <div class="coun-desc">Thyroid, cortisol, sex-hormone balance over time.</div>
+            <div><div class="coun-name" data-i18n="262">Эндокринология</div><span class="coun-style" data-i18n="263">Гормоны · с учётом цикла</span></div>
+            <div class="coun-desc" data-i18n="264">Щитовидная железа, кортизол, баланс половых гормонов во времени.</div>
           </div>
         </div>
       </div>
 
       <div class="deb sr right">
-        <div class="deb-head"><span class="t">Council debate · case 04-22</span><span class="mono" style="color:var(--gr)">live</span></div>
-        <div class="deb-q">"Why is my LDL still climbing after 8 weeks of diet changes?"</div>
+        <div class="deb-head"><span class="t" data-i18n="265">Дебаты совета · кейс 04-22</span><span class="mono" style="color:var(--gr)">live</span></div>
+        <div class="deb-q" data-i18n="267">«Почему мой ЛПНП всё ещё растёт после 8 недель изменений в питании?»</div>
 
-        <div class="deb-bub deb-card"><span class="lbl">Cardiology · 14:32</span>Diet alone won't move LDL fast for genetic responders. ApoE 3/4 is in this profile — recommend re-baseline at 12 weeks, prepare to consider statin if Lp(a) stays high.</div>
-        <div class="deb-bub deb-gas"><span class="lbl">Gastroenterology · 14:33</span>Fiber intake jumped to 38g, that should help. Saturated fat from dairy is still 18g — that's likely the active driver. Suggest swap to olive oil + nuts for 6 weeks before escalating.</div>
-        <div class="deb-bub deb-sleep"><span class="lbl">Sleep medicine · 14:34</span>Sleep debt is suppressing leptin and pushing appetite for high-fat snacks. Architecture is the upstream lever here — fix sleep first, then re-measure.</div>
+        <div class="deb-bub deb-card" data-i18n="268"><span class="lbl">Кардиология · 14:32</span>Одна диета не сдвинет ЛПНП быстро у генетических респондеров. В этом профиле ApoE 3/4 — рекомендую пересдать через 12 недель и быть готовыми обсудить статин, если Lp(a) останется высоким.</div>
+        <div class="deb-bub deb-gas" data-i18n="269"><span class="lbl">Гастроэнтерология · 14:33</span>Клетчатка выросла до 38 г, это должно помочь. Насыщенных жиров из молочного всё ещё 18 г — скорее всего, это главный драйвер. Предлагаю заменить на оливковое масло + орехи на 6 недель, прежде чем усиливать терапию.</div>
+        <div class="deb-bub deb-sleep" data-i18n="270"><span class="lbl">Медицина сна · 14:34</span>Недосып подавляет лептин и толкает к жирным перекусам. Архитектура сна — рычаг выше по цепочке: сначала наладить сон, потом перемерить.</div>
 
-        <div class="deb-bub deb-syn"><span class="lbl">+ Life synthesis</span>The council agrees: <strong>diet alone is unlikely to be enough</strong>, but the smallest high-leverage move is to <strong>swap dairy fat → olive oil + nuts for 6 weeks</strong> while also <strong>restoring sleep architecture</strong> (caffeine cutoff 10am). Re-test ApoB at 12 weeks. Statin conversation only if no movement by then.</div>
+        <div class="deb-bub deb-syn" data-i18n="271"><span class="lbl">+ Life синтез</span>Совет согласен: <strong>одной диеты, скорее всего, недостаточно</strong>, но самый маленький и самый эффективный шаг — <strong>заменить молочный жир на оливковое масло + орехи на 6 недель</strong> и одновременно <strong>восстановить архитектуру сна</strong> (отсечка кофеина в 10:00). Пересдать ApoB через 12 недель. Разговор о статине — только если сдвига не будет.</div>
       </div>
     </div>
   </div>
@@ -1801,45 +1817,45 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
 <section class="sec s-light" id="passport">
   <div class="sec-inner">
     <div class="sec-head">
-    <div class="kicker sr">Health passport</div>
-    <h2 class="disp h2 sr d1">Your whole health, on <em>one page</em>.</h2>
-    <p class="desc sr d2">A continuously updating, doctor-readable summary of you. Bring it to a visit, share it with a specialist, hand it to a new provider — instead of starting from scratch.</p>
+    <div class="kicker sr" data-i18n="272">Паспорт здоровья</div>
+    <h2 class="disp h2 sr d1" data-i18n="273">Всё ваше здоровье на <em>одной странице</em>.</h2>
+    <p class="desc sr d2" data-i18n="274">Постоянно обновляемая, понятная врачу сводка о вас. Возьмите на приём, покажите специалисту, передайте новому врачу — вместо того чтобы начинать с нуля.</p>
     </div>
 
     <div class="pass-grid">
       <div class="pass pass-lt sr up d1">
-        <div class="pass-head"><span class="t">+ Life passport · light</span><span class="pass-id">ID 4F8-219K · v.42</span></div>
-        <div><div class="pass-name">A. Ivanov<span class="role">Patient · 38 · M</span></div></div>
+        <div class="pass-head"><span class="t" data-i18n="275">+ Life паспорт · светлый</span><span class="pass-id" data-i18n="276">ID 4F8-219K · в.42</span></div>
+        <div><div class="pass-name" data-i18n="277">А. Иванов<span class="role">Пациент · 38 · М</span></div></div>
         <div class="pass-rows">
-          <div class="pass-row"><span>Resting HR / HRV</span><span class="v">52 / 64ms</span></div>
-          <div class="pass-row"><span>BP (7-day avg)</span><span class="v">118 / 76</span></div>
-          <div class="pass-row"><span>ApoB · LDL · Lp(a)</span><span class="v">78 · 102 · 14</span></div>
-          <div class="pass-row"><span>Fasting glucose · HbA1c</span><span class="v">88 · 5.2</span></div>
-          <div class="pass-row"><span>Vit D · Ferritin · B12</span><span class="v">42 · 38 · 412</span></div>
+          <div class="pass-row"><span data-i18n="278">Пульс в покое / HRV</span><span class="v" data-i18n="279">52 / 64 мс</span></div>
+          <div class="pass-row"><span data-i18n="280">АД (среднее за 7 дней)</span><span class="v">118 / 76</span></div>
+          <div class="pass-row"><span data-i18n="282">ApoB · ЛПНП · Lp(a)</span><span class="v">78 · 102 · 14</span></div>
+          <div class="pass-row"><span data-i18n="284">Глюкоза натощак · HbA1c</span><span class="v" data-i18n="285">88 · 5,2</span></div>
+          <div class="pass-row"><span data-i18n="286">Вит. D · Ферритин · B12</span><span class="v">42 · 38 · 412</span></div>
           <div class="pass-row"><span>VO₂ max</span><span class="v">48</span></div>
         </div>
         <div class="pass-doc">
           <div class="ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-          <div class="t">Visit summary · 1 page<span>Updated 2 minutes ago</span></div>
-          <div class="pass-chips"><span class="badge badge-gr">OK 18</span><span class="badge badge-am">Watch 3</span><span class="badge badge-rd">Miss 1</span></div>
+          <div class="t" data-i18n="290">Сводка визита · 1 страница<span>Обновлено 2 минуты назад</span></div>
+          <div class="pass-chips"><span class="badge badge-gr" data-i18n="291">ОК 18</span><span class="badge badge-am" data-i18n="292">Следить 3</span><span class="badge badge-rd" data-i18n="293">Пропуск 1</span></div>
         </div>
       </div>
 
       <div class="pass pass-dk sr up d2">
-        <div class="pass-head"><span class="t">+ Life passport · clinical</span><span class="pass-id">ID 4F8-219K · v.42</span></div>
-        <div><div class="pass-name">A. Ivanov<span class="role">Patient · 38 · M</span></div></div>
+        <div class="pass-head"><span class="t" data-i18n="294">+ Life паспорт · клинический</span><span class="pass-id" data-i18n="295">ID 4F8-219K · в.42</span></div>
+        <div><div class="pass-name" data-i18n="296">А. Иванов<span class="role">Пациент · 38 · М</span></div></div>
         <div class="pass-rows">
-          <div class="pass-row"><span>Resting HR / HRV</span><span class="v">52 / 64ms</span></div>
-          <div class="pass-row"><span>BP (7-day avg)</span><span class="v">118 / 76</span></div>
-          <div class="pass-row"><span>ApoB · LDL · Lp(a)</span><span class="v">78 · 102 · 14</span></div>
-          <div class="pass-row"><span>Fasting glucose · HbA1c</span><span class="v">88 · 5.2</span></div>
-          <div class="pass-row"><span>Vit D · Ferritin · B12</span><span class="v">42 · 38 · 412</span></div>
+          <div class="pass-row"><span data-i18n="297">Пульс в покое / HRV</span><span class="v" data-i18n="298">52 / 64 мс</span></div>
+          <div class="pass-row"><span data-i18n="299">АД (среднее за 7 дней)</span><span class="v">118 / 76</span></div>
+          <div class="pass-row"><span data-i18n="301">ApoB · ЛПНП · Lp(a)</span><span class="v">78 · 102 · 14</span></div>
+          <div class="pass-row"><span data-i18n="303">Глюкоза натощак · HbA1c</span><span class="v" data-i18n="304">88 · 5,2</span></div>
+          <div class="pass-row"><span data-i18n="305">Вит. D · Ферритин · B12</span><span class="v">42 · 38 · 412</span></div>
           <div class="pass-row"><span>VO₂ max</span><span class="v">48</span></div>
         </div>
         <div class="pass-doc">
           <div class="ico" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-          <div class="t">Specialist export · PDF<span>Encrypted, single-share link</span></div>
-          <div class="pass-chips"><span class="badge badge-gr">OK 18</span><span class="badge badge-am">Watch 3</span><span class="badge badge-rd">Miss 1</span></div>
+          <div class="t" data-i18n="309">Экспорт для специалиста · PDF<span>Зашифрованная одноразовая ссылка</span></div>
+          <div class="pass-chips"><span class="badge badge-gr" data-i18n="310">ОК 18</span><span class="badge badge-am" data-i18n="311">Следить 3</span><span class="badge badge-rd" data-i18n="312">Пропуск 1</span></div>
         </div>
       </div>
     </div>
@@ -1853,39 +1869,39 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
   <div class="sec-inner">
     <div class="visit-grid">
       <div>
-        <div class="kicker sr">Visit prep</div>
-        <h2 class="disp h2 sr d1">Walk in <em>prepared</em>.<br>Walk out with answers.</h2>
-        <p class="desc sr d2">+Life builds a 1-page briefing before every visit — what's changed since last time, what's flagged, what to ask. Your 15-minute slot stops being a fishing trip.</p>
+        <div class="kicker sr" data-i18n="313">Подготовка к визиту</div>
+        <h2 class="disp h2 sr d1" data-i18n="314">Войдите <em>подготовленным</em>.<br>Выйдите с ответами.</h2>
+        <p class="desc sr d2" data-i18n="315">+Life собирает одностраничный брифинг перед каждым визитом — что изменилось с прошлого раза, что помечено, что спросить. Ваши 15 минут перестают быть рыбалкой вслепую.</p>
         <div class="stack" style="margin-top:30px;gap:18px">
-          <div class="ehr-bullet sr d1"><div class="ck" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Pre-built question list</h4><p>The 3–5 questions worth asking, ranked by what's actually changed.</p></div></div>
-          <div class="ehr-bullet sr d2"><div class="ck" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Trends, not snapshots</h4><p>Every marker shown in trend, not as one anxious dot.</p></div></div>
-          <div class="ehr-bullet sr d3"><div class="ck" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4>Shareable in one tap</h4><p>Send to your provider's portal or print. Their EHR can ingest it directly.</p></div></div>
+          <div class="ehr-bullet sr d1"><div class="ck" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4 data-i18n="316">Готовый список вопросов</h4><p data-i18n="317">3–5 вопросов, которые стоит задать, ранжированные по тому, что реально изменилось.</p></div></div>
+          <div class="ehr-bullet sr d2"><div class="ck" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4 data-i18n="318">Тренды, а не снимки</h4><p data-i18n="319">Каждый маркер показан в динамике, а не одной тревожной точкой.</p></div></div>
+          <div class="ehr-bullet sr d3"><div class="ck" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4 data-i18n="320">Поделиться одним касанием</h4><p data-i18n="321">Отправьте в портал вашей клиники или распечатайте. Их ЭМК примет это напрямую.</p></div></div>
         </div>
       </div>
 
       <div class="visit-card sr right">
-        <div class="visit-head"><span class="t">Pre-visit briefing · Dr. Liu · primary care</span><span class="when">Apr 30 · 9:30 AM</span></div>
+        <div class="visit-head"><span class="t" data-i18n="322">Брифинг к визиту · Д-р Лю · терапевт</span><span class="when" data-i18n="323">30 апр · 9:30</span></div>
         <div class="visit-block">
-          <span class="lab">What's changed since last visit</span>
+          <span class="lab" data-i18n="324">Что изменилось с прошлого визита</span>
           <ul>
-            <li><span class="b" aria-hidden="true"></span><span class="tx">HRV down <strong>18%</strong> over 5 nights, still recovering</span><span class="v">7 days</span></li>
-            <li><span class="b" aria-hidden="true"></span><span class="tx">Ferritin trending toward bottom quartile</span><span class="v">3 mo</span></li>
-            <li><span class="b" aria-hidden="true"></span><span class="tx">ApoB up <strong>+12 mg/dL</strong> after diet change</span><span class="v">8 wk</span></li>
+            <li><span class="b" aria-hidden="true"></span><span class="tx" data-i18n="325">HRV ниже на <strong>18%</strong> за 5 ночей, ещё восстанавливается</span><span class="v" data-i18n="326">7 дней</span></li>
+            <li><span class="b" aria-hidden="true"></span><span class="tx" data-i18n="327">Ферритин движется к нижней четверти</span><span class="v" data-i18n="328">3 мес</span></li>
+            <li><span class="b" aria-hidden="true"></span><span class="tx" data-i18n="329">ApoB вырос на <strong>+12 мг/дл</strong> после смены питания</span><span class="v" data-i18n="330">8 нед</span></li>
           </ul>
         </div>
         <div class="visit-block">
-          <span class="lab">Worth asking</span>
+          <span class="lab" data-i18n="331">Стоит спросить</span>
           <ul>
-            <li><span class="b" aria-hidden="true"></span><span class="tx">Repeat iron panel today — can we draw it before I leave?</span><span class="v">5 min</span></li>
-            <li><span class="b" aria-hidden="true"></span><span class="tx">Lp(a) is normal but ApoE is 3/4 — re-baseline lipids at 12 weeks?</span><span class="v">discuss</span></li>
-            <li><span class="b" aria-hidden="true"></span><span class="tx">Sleep medicine referral worth it given HRV pattern?</span><span class="v">discuss</span></li>
+            <li><span class="b" aria-hidden="true"></span><span class="tx" data-i18n="332">Повторить панель железа сегодня — можно взять кровь до ухода?</span><span class="v" data-i18n="333">5 мин</span></li>
+            <li><span class="b" aria-hidden="true"></span><span class="tx" data-i18n="334">Lp(a) в норме, но ApoE 3/4 — пересдать липиды через 12 недель?</span><span class="v" data-i18n="335">обсудить</span></li>
+            <li><span class="b" aria-hidden="true"></span><span class="tx" data-i18n="336">Стоит ли направление к сомнологу при таком паттерне HRV?</span><span class="v" data-i18n="337">обсудить</span></li>
           </ul>
         </div>
         <div class="visit-block">
-          <span class="lab">Working list of meds & supps</span>
+          <span class="lab" data-i18n="338">Текущий список препаратов и добавок</span>
           <ul>
-            <li><span class="b" aria-hidden="true"></span><span class="tx">Vit D3 5000 IU · Omega-3 2g · Magnesium glyc.</span><span class="v">daily</span></li>
-            <li><span class="b" aria-hidden="true"></span><span class="tx">Methylfolate 800 µg (MTHFR variant)</span><span class="v">daily</span></li>
+            <li><span class="b" aria-hidden="true"></span><span class="tx" data-i18n="339">Вит. D3 5000 МЕ · Омега-3 2 г · Магния глицинат</span><span class="v" data-i18n="340">ежедневно</span></li>
+            <li><span class="b" aria-hidden="true"></span><span class="tx" data-i18n="341">Метилфолат 800 мкг (вариант MTHFR)</span><span class="v" data-i18n="342">ежедневно</span></li>
           </ul>
         </div>
       </div>
@@ -1900,31 +1916,31 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
   <div class="sec-inner">
     <div class="rem-grid">
       <div>
-        <div class="kicker sr">Adaptive reminders</div>
-        <h2 class="disp h2 sr d1">Reminders that <em>rewrite</em> themselves when life moves.</h2>
-        <p class="desc sr d2">Static reminders fail the moment your day shifts. +Life watches the signal and reshapes the plan in real time — the nudge you actually needed, not the one you set last Sunday.</p>
+        <div class="kicker sr" data-i18n="343">Адаптивные напоминания</div>
+        <h2 class="disp h2 sr d1" data-i18n="344">Напоминания, которые <em>переписывают</em> себя, когда жизнь меняется.</h2>
+        <p class="desc sr d2" data-i18n="345">Статичные напоминания ломаются в момент, когда день сдвигается. +Life следит за сигналом и перестраивает план в реальном времени — тот толчок, который вам действительно нужен, а не тот, что вы поставили в прошлое воскресенье.</p>
       </div>
 
       <div class="rem-list sr right">
         <div class="rem-row">
-          <div class="rem-trig">Trigger · You skipped breakfast<span>9:48 AM</span></div>
-          <div class="rem-resp">Pushing your <strong>creatine + magnesium</strong> dose to your 11:30 lunch instead of pre-workout. Reset back to morning tomorrow if you eat earlier.<span class="meta">Auto-rescheduled · Nutrition pillar</span></div>
+          <div class="rem-trig" data-i18n="346">Триггер · Вы пропустили завтрак<span>9:48</span></div>
+          <div class="rem-resp" data-i18n="347">Переношу дозу <strong>креатина + магния</strong> на обед в 11:30 вместо предтренировочной. Завтра вернём на утро, если поедите раньше.<span class="meta">Перенесено автоматически · Столп «Питание»</span></div>
         </div>
         <div class="rem-row">
-          <div class="rem-trig">Trigger · HRV down 14% overnight<span>7:02 AM</span></div>
-          <div class="rem-resp">Today's heavy session is now <strong>zone-2 + mobility</strong>. Reminder to push your lift to Thursday. Keeping protein target unchanged.<span class="meta">Auto-rewritten · Movement pillar</span></div>
+          <div class="rem-trig" data-i18n="348">Триггер · HRV упала на 14% за ночь<span>7:02</span></div>
+          <div class="rem-resp" data-i18n="349">Сегодняшняя тяжёлая сессия теперь — <strong>зона 2 + мобильность</strong>. Напоминание перенести силовую на четверг. Цель по белку без изменений.<span class="meta">Переписано автоматически · Столп «Движение»</span></div>
         </div>
         <div class="rem-row">
-          <div class="rem-trig">Trigger · Travel day detected<span>5:14 AM</span></div>
-          <div class="rem-resp">Hydration target raised to <strong>3.4L</strong>. Caffeine cutoff moved to local 11am. Sleep window flagged 90 min earlier to offset jet lag.<span class="meta">Auto-adapted · Sleep pillar</span></div>
+          <div class="rem-trig" data-i18n="350">Триггер · Обнаружен день в дороге<span>5:14</span></div>
+          <div class="rem-resp" data-i18n="351">Цель по воде поднята до <strong>3,4 л</strong>. Отсечка кофеина сдвинута на 11:00 по местному. Окно сна помечено на 90 мин раньше, чтобы сгладить джетлаг.<span class="meta">Адаптировано автоматически · Столп «Сон»</span></div>
         </div>
         <div class="rem-row">
-          <div class="rem-trig">Trigger · Cold symptoms logged<span>9:12 PM</span></div>
-          <div class="rem-resp">Pausing your training reminders for 48h. Vit D + zinc bumped, ibuprofen suggested only if you cross fever threshold. Will re-check tomorrow.<span class="meta">Auto-paused · Immune signal</span></div>
+          <div class="rem-trig" data-i18n="352">Триггер · Записаны симптомы простуды<span>21:12</span></div>
+          <div class="rem-resp" data-i18n="353">Ставлю тренировочные напоминания на паузу на 48 ч. Вит. D + цинк повышены, ибупрофен предложу только при переходе порога температуры. Проверю завтра.<span class="meta">Приостановлено автоматически · Иммунный сигнал</span></div>
         </div>
         <div class="rem-row">
-          <div class="rem-trig">Trigger · Period day 1 detected<span>6:30 AM</span></div>
-          <div class="rem-resp">Iron-rich meal suggestions added. Strength volume target lowered <strong>15%</strong> for 3 days. Sleep window extended 30 min.<span class="meta">Cycle-aware · Hormonal pillar</span></div>
+          <div class="rem-trig" data-i18n="354">Триггер · Обнаружен 1-й день цикла<span>6:30</span></div>
+          <div class="rem-resp" data-i18n="355">Добавлены предложения блюд, богатых железом. Цель по силовому объёму снижена на <strong>15%</strong> на 3 дня. Окно сна продлено на 30 мин.<span class="meta">С учётом цикла · Столп «Гормоны»</span></div>
         </div>
       </div>
     </div>
@@ -1938,28 +1954,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
   <div class="sec-inner">
     <div class="coach-grid">
       <div>
-        <div class="kicker sr">Coaching</div>
-        <h2 class="disp h2 sr d1">A coach that <em>knows</em> you, not your category.</h2>
-        <p class="desc sr d2">Daily, conversational, available. It checks in when something shifts, not on a schedule. It celebrates the small wins and warns about the early signals — because it actually sees the data.</p>
+        <div class="kicker sr" data-i18n="356">Коучинг</div>
+        <h2 class="disp h2 sr d1" data-i18n="357">Коуч, который <em>знает</em> вас, а не вашу категорию.</h2>
+        <p class="desc sr d2" data-i18n="358">Ежедневно, в диалоге, всегда рядом. Выходит на связь, когда что-то сдвигается, а не по расписанию. Отмечает маленькие победы и предупреждает о ранних сигналах — потому что действительно видит данные.</p>
         <div class="stack" style="margin-top:30px;gap:18px">
-          <div class="ehr-bullet sr d1"><div class="ck" aria-hidden="true" style="background:rgba(57,255,110,0.12);border-color:rgba(57,255,110,0.3);color:var(--gr)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4 style="color:var(--tx)">Personal context, every reply</h4><p style="color:var(--tx2)">Knows your training history, your last labs, your sleep last night, your supplement stack.</p></div></div>
-          <div class="ehr-bullet sr d2"><div class="ck" aria-hidden="true" style="background:rgba(57,255,110,0.12);border-color:rgba(57,255,110,0.3);color:var(--gr)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4 style="color:var(--tx)">Proactive, not chatty</h4><p style="color:var(--tx2)">Stays quiet when nothing's wrong. Speaks up the moment a marker drifts.</p></div></div>
-          <div class="ehr-bullet sr d3"><div class="ck" aria-hidden="true" style="background:rgba(57,255,110,0.12);border-color:rgba(57,255,110,0.3);color:var(--gr)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4 style="color:var(--tx)">Asks for the next 1% — not the next overhaul</h4><p style="color:var(--tx2)">Tiny, sustainable nudges. The compounding kind.</p></div></div>
+          <div class="ehr-bullet sr d1"><div class="ck" aria-hidden="true" style="background:rgba(57,255,110,0.12);border-color:rgba(57,255,110,0.3);color:var(--gr)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4 style="color:var(--tx)" data-i18n="359">Личный контекст в каждом ответе</h4><p style="color:var(--tx2)" data-i18n="360">Знает вашу историю тренировок, последние анализы, сон прошлой ночью, стек добавок.</p></div></div>
+          <div class="ehr-bullet sr d2"><div class="ck" aria-hidden="true" style="background:rgba(57,255,110,0.12);border-color:rgba(57,255,110,0.3);color:var(--gr)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4 style="color:var(--tx)" data-i18n="361">Проактивный, а не болтливый</h4><p style="color:var(--tx2)" data-i18n="362">Молчит, когда всё в порядке. Говорит в момент, когда маркер поплыл.</p></div></div>
+          <div class="ehr-bullet sr d3"><div class="ck" aria-hidden="true" style="background:rgba(57,255,110,0.12);border-color:rgba(57,255,110,0.3);color:var(--gr)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div><h4 style="color:var(--tx)" data-i18n="363">Просит следующий 1%, а не следующую перестройку</h4><p style="color:var(--tx2)" data-i18n="364">Маленькие, устойчивые шаги. Те, что накапливаются.</p></div></div>
         </div>
       </div>
 
       <div class="coach-mock sr right">
         <div class="coach-head">
           <div class="coach-av" aria-hidden="true">+</div>
-          <div class="info"><div class="nm">+Life coach</div><div class="st"><span class="live-dot" aria-hidden="true"></span>Active · listening</div></div>
+          <div class="info"><div class="nm" data-i18n="366">+Life коуч</div><div class="st" data-i18n="367"><span class="live-dot" aria-hidden="true"></span>Активен · слушает</div></div>
         </div>
 
-        <div class="coach-grp"><span class="coach-lbl">+Life · 7:14 AM</span><div class="coach-msg ai">Morning. HRV is back up to <strong>58ms</strong>, so today's lift is back on. Aim for <strong>~6 sets</strong> on squats, leave 2 reps in the tank.</div></div>
-        <div class="coach-evt">Supplements logged · 9:42 AM</div>
-        <div class="coach-grp right"><span class="coach-lbl">You · 12:30 PM</span><div class="coach-msg me">Been craving sweet stuff all morning, weird.</div></div>
-        <div class="coach-grp"><span class="coach-lbl">+Life · 12:31 PM</span><div class="coach-msg ai">You're <strong>~28g protein</strong> behind your morning target and you slept 6h 12m. That combo usually drives the craving for you. Try a higher-protein lunch first, see if it fades.</div></div>
-        <div class="coach-evt">Lunch logged · 1:14 PM · 42g protein</div>
-        <div class="coach-grp"><span class="coach-lbl">+Life · 3:30 PM</span><div class="coach-msg ai">Cravings should ease in the next hour. Logging this — pattern of <strong>poor sleep → carb-craving by noon</strong> in 7 of the last 10 short-sleep days.</div></div>
+        <div class="coach-grp"><span class="coach-lbl" data-i18n="368">+Life · 7:14</span><div class="coach-msg ai" data-i18n="369">Доброе утро. HRV снова на <strong>58 мс</strong>, так что сегодняшняя силовая снова в плане. Цельтесь в <strong>~6 подходов</strong> приседа, оставляя 2 повтора в запасе.</div></div>
+        <div class="coach-evt" data-i18n="370">Добавки отмечены · 9:42</div>
+        <div class="coach-grp right"><span class="coach-lbl" data-i18n="371">Вы · 12:30</span><div class="coach-msg me" data-i18n="372">Всё утро тянет на сладкое, странно.</div></div>
+        <div class="coach-grp"><span class="coach-lbl" data-i18n="373">+Life · 12:31</span><div class="coach-msg ai" data-i18n="374">Вы на <strong>~28 г белка</strong> ниже утренней цели и спали 6 ч 12 м. У вас эта комбинация обычно и вызывает тягу. Попробуйте сначала обед с большим количеством белка — посмотрим, пройдёт ли.</div></div>
+        <div class="coach-evt" data-i18n="375">Обед отмечен · 13:14 · 42 г белка</div>
+        <div class="coach-grp"><span class="coach-lbl" data-i18n="376">+Life · 15:30</span><div class="coach-msg ai" data-i18n="377">Тяга должна отпустить в течение часа. Записываю: паттерн <strong>плохой сон → тяга к углеводам к полудню</strong> в 7 из последних 10 коротких ночей.</div></div>
       </div>
     </div>
   </div>
@@ -1971,24 +1987,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
 <section class="sec s-light" id="physician">
   <div class="sec-inner">
     <div class="sec-head">
-    <div class="kicker sr">Physician collaboration</div>
-    <h2 class="disp h2 sr d1">Built <em>with</em> physicians, used inside the visit.</h2>
-    <p class="desc sr d2">+Life isn't a wall between you and your provider. It's the brief they get before they walk in the room — and the record they update on the way out.</p>
+    <div class="kicker sr" data-i18n="378">Сотрудничество с врачами</div>
+    <h2 class="disp h2 sr d1" data-i18n="379">Создано <em>вместе</em> с врачами, используется на приёме.</h2>
+    <p class="desc sr d2" data-i18n="380">+Life — не стена между вами и врачом. Это брифинг, который он получает перед тем, как войти в кабинет, — и карта, которую он обновляет на выходе.</p>
     </div>
 
     <div class="phys sr up">
       <div class="phys-mono" aria-hidden="true">DR</div>
       <div>
-        <blockquote>"My patients used to bring printouts and a list of half-remembered worries. Now they bring a +Life passport. I can see the trends, the cross-pillar links, and the questions worth asking — in the first <em>ninety seconds</em> of the visit. It changes what we can do in fifteen minutes."</blockquote>
+        <blockquote data-i18n="382">«Раньше мои пациенты приносили распечатки и список полузабытых тревог. Теперь они приносят паспорт +Life. Я вижу тренды, межстолповые связи и вопросы, которые стоит задать, — в первые <em>девяносто секунд</em> приёма. Это меняет то, что мы успеваем за пятнадцать минут.»</blockquote>
         <div class="phys-by">
-          <div class="who">Dr. Maya Reyes, MD<span> · Internal medicine, longevity</span></div>
-          <div class="ten">Clinical advisor · 14 years practice</div>
+          <div class="who" data-i18n="383">Д-р Майя Рейес, MD<span> · Терапия, долголетие</span></div>
+          <div class="ten" data-i18n="384">Клинический советник · 14 лет практики</div>
         </div>
       </div>
     </div>
 
     <div class="inst-row sr">
-      <span class="lbl">Used by clinicians at</span>
+      <span class="lbl" data-i18n="385">Используют врачи в</span>
       <span class="nm">Stanford Health</span>
       <span class="nm">UCSF</span>
       <span class="nm">Mount Sinai</span>
@@ -2003,8 +2019,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
      ============================================================ -->
 <section class="statement" id="statement">
   <div class="statement-inner">
-    <h2 class="sr">No single app sees<br>the whole picture.<br><em>+Life does.</em></h2>
-    <p class="sr d1">Not another tracker. Not another chatbot. The single operating system your health has been waiting for — quiet when nothing is wrong, present when it matters, and finally, all of you in one place.</p>
+    <h2 class="sr" data-i18n="391">Ни одно приложение не видит<br>картину целиком.<br><em>+Life видит.</em></h2>
+    <p class="sr d1" data-i18n="392">Не ещё один трекер. Не ещё один чат-бот. Единая операционная система, которую ваше здоровье давно ждало, — тихая, когда всё в порядке, рядом, когда это важно, и наконец весь вы в одном месте.</p>
   </div>
 </section>
 
@@ -2014,20 +2030,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
 <section class="cta" id="cta">
   <canvas id="particleRing" aria-hidden="true"></canvas>
   <div class="cta-inner">
-    <div class="kicker sr">Your personal health OS</div>
-    <h2 class="sr d1">Own your <em>biology</em>.</h2>
+    <div class="kicker sr" data-i18n="393">Ваша персональная ОС здоровья</div>
+    <h2 class="sr d1" data-i18n="394">Владейте своей <em>биологией</em>.</h2>
     <div class="cta-actions sr d2">
-      <a class="btn btn-pri" href="https://health-coach-theta.vercel.app" target="_blank" rel="noopener noreferrer">Get early access →</a>
-      <a class="btn btn-ghost" href="#">Watch demo</a>
+      <a class="btn btn-pri" href="https://health-coach-theta.vercel.app" target="_blank" rel="noopener noreferrer" data-i18n="395">Получить ранний доступ →</a>
+      <a class="btn btn-ghost" href="#" data-i18n="396">Смотреть демо</a>
     </div>
     <div class="cta-stores sr d3">
       <a class="store-badge" href="#" aria-label="Download on the App Store">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-        <div class="col"><span class="a">Download on the</span><span class="b">App Store</span></div>
+        <div class="col"><span class="a" data-i18n="397">Загрузить в</span><span class="b">App Store</span></div>
       </a>
       <a class="store-badge" href="#" aria-label="Get it on Google Play">
         <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.61 1.81c-.39.39-.61.92-.61 1.49v17.4c0 .57.22 1.1.61 1.49l.07.06L13.4 12.5v-.27L3.68 1.75l-.07.06zm10.5 11.4l3.27 3.27-9.7 5.51c-.31.18-.66.18-.97.01l7.4-8.79zm0-3.42L6.71 1.01c.31-.17.66-.17.97.01l9.7 5.51-3.27 3.27zm6.3 1.71c.39.22.62.6.62 1s-.23.78-.62 1l-2.6 1.48-3.42-3.42 3.42-3.42 2.6 1.36z"/></svg>
-        <div class="col"><span class="a">Get it on</span><span class="b">Google Play</span></div>
+        <div class="col"><span class="a" data-i18n="399">Доступно в</span><span class="b">Google Play</span></div>
       </a>
     </div>
   </div>
@@ -2047,13 +2063,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
           <line x1="15" y1="12" x2="21" y2="12"/>
         </g>
       </svg>
-      <span>© 2026 +Life · All rights reserved</span>
+      <span data-i18n="401">© 2026 +Life · Все права защищены</span>
     </div>
     <div class="foot-r">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Security</a>
-      <a href="#">Contact</a>
+      <div class="lang lang-foot" role="group" aria-label="Язык / Language">
+      <button type="button" class="lang-btn" data-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+      <a href="#" data-i18n="402">Конфиденциальность</a>
+      <a href="#" data-i18n="403">Условия</a>
+      <a href="#" data-i18n="404">Безопасность</a>
+      <a href="#" data-i18n="405">Контакты</a>
     </div>
   </div>
 </footer>
@@ -2063,6 +2083,59 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
   'use strict';
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+  /* ============================================================
+     I18N — RU default, EN preserved verbatim
+     ============================================================ */
+  (function(){
+    var I18N = {"en": {"2": "Platform", "3": "Data sources", "4": "Pricing", "5": "Get early access", "6": "Personal Health &amp; Wellbeing OS", "7": "Your body<br>runs on <em>data</em>.<br>Now so do <em>you</em>.", "8": "+Life is a single operating system for your health. It ingests your medical records, biometrics, nutrition, movement and genome, and turns them into one continuously updating picture — and one set of next steps.", "9": "Start for free →", "10": "Watch demo", "11": "Your Health OS · Live", "12": "<span class=\"live-dot\" aria-hidden=\"true\"></span>Synced", "14": "out of 100", "15": "Projected", "16": "+5.2 years", "17": "Health span added", "18": "Heart", "20": "Metabolic", "22": "Longevity", "24": "Hormonal", "26": "Sleep", "28": "Immune", "30": "<span class=\"live-dot\" aria-hidden=\"true\"></span>AI Insight · Today", "31": "Your <strong>HRV dropped 14%</strong> after two nights below 6h sleep. Pushing tomorrow's training to Thursday raises projected recovery by <strong>+22%</strong>.", "34": "Why everything else fails", "35": "Dozens of tools.<br>They all <em>failed</em> the same way.", "36": "You've tried the rings, the scales, the lab kits, the chatbots, the meal apps. Each gives you one thin slice of yourself — and none of them talk to each other.", "39": "Wearable rings", "40": "Tells you your sleep was bad. Doesn't tell you why, or what to change.", "43": "Annual labs", "44": "100 markers, 12 pages, no follow-up. You file it and forget it.", "47": "Diet trackers", "48": "Logs calories. Has no idea what your blood, sleep or stress are doing.", "51": "AI chatbots", "52": "Answers anything in general. Knows nothing about you specifically.", "53": "The real problem", "54": "Your health lives in twenty places. None of them know each other.", "55": "Every app holds a tiny shard of you. Your cardiologist can't see your CGM. Your nutrition app can't see your hormone panel. You become a translator between systems that should be talking — and you lose the signal that only emerges when all of it is in one place.", "56": "+ Life solves this ↓", "57": "One operating system", "58": "One system that <em>sees everything</em>, and tells you what matters next.", "59": "+Life pulls every signal — clinical, biometric, nutritional, behavioral, genetic — into a single living picture, then surfaces the small set of changes that actually move your trajectory. Not more data. The right next step.", "60": "The five pillars", "61": "One OS. Five streams of <em>truth</em><br>about your body.", "62": "Every dimension of your physiology, captured continuously, modeled together. No pillar exists alone — and that's exactly the point.", "63": "01 — Clinical health", "65": "Your <em>medical</em> story, decoded.", "66": "Lab panels, imaging, EHR notes, prescriptions. Parsed and tracked over time, not buried in a portal.", "67": "EHR", "68": "LABS", "69": "IMAGING", "70": "02 — Sleep", "72": "Your <em>recovery</em> engine.", "73": "Stage architecture, HRV, resting HR, oxygenation. Quality, not just hours.", "75": "STAGES", "77": "03 — Nutrition", "79": "Your <em>fuel</em> profile.", "80": "Macros, micronutrients, supplement stack, glucose response. What you eat — and how you respond.", "81": "MACROS", "83": "SUPPS", "84": "04 — Movement", "86": "Your <em>output</em> over time.", "87": "Cardio load, strength volume, VO₂ max, recovery debt. Training as a long curve, not isolated sessions.", "89": "LOAD", "90": "STRENGTH", "91": "05 — Genome", "93": "Your <em>baseline</em> code.", "94": "Polygenic risk, pharmacogenomics, methylation pathways. The static layer everything else reads against.", "97": "PHARMA", "98": "One <em>intelligent</em> OS, learning across every pillar.", "99": "Signals never stay siloed. Your sleep talks to your training. Your training talks to your genome. Your labs talk to your nutrition. The model finds the cross-pillar links a single specialist would never see.", "100": "ApoB rising → <span>tighten saturated fat, add zone-2 volume</span>", "101": "Low ferritin × HRV drop → <span>iron retest, deload week</span>", "102": "MTHFR variant + low B12 → <span>switch to methylfolate</span>", "103": "Cortisol AM × poor deep sleep → <span>shift caffeine cutoff to 10am</span>", "104": "<span class=\"live-dot\" aria-hidden=\"true\"></span>Live · cross-pillar map", "105": "<i style=\"background:#ff6b6b\"></i>Clinical", "106": "<i style=\"background:#4dd4ff\"></i>Sleep", "107": "<i style=\"background:#39ff6e\"></i>Nutrition", "108": "<i style=\"background:#ffa53b\"></i>Movement", "109": "<i style=\"background:#c084fc\"></i>Genome", "110": "What you get", "111": "Five pillars.<br>One <em>complete</em> picture.", "112": "Each pillar gets its own deep view, but no view stands alone. Every chart is read by every other.", "113": "01 — Clinical health", "114": "Every lab marker in <em>context</em>, not just in range.", "115": "Not just \"in range\" or \"out of range\". +Life shows you where each marker sits inside the optimal band, how it's trending across years, and which other pillars are pushing it.", "116": "Cardiometabolic panel", "117": "12 markers · today", "119": "78 mg/dL", "121": "102 mg/dL", "123": "61 mg/dL", "125": "14 nmol/L", "126": "hs-CRP", "127": "0.6 mg/L", "128": "Fasting glucose", "129": "88 mg/dL", "130": "02 — Sleep", "131": "Sleep as <em>architecture</em>, not a single number.", "132": "See deep, REM and light separately. Watch how last night's structure changes today's HRV, today's mood, today's tolerance for training. The model learns your personal recovery curve.", "133": "Tonight's sleep", "134": "7h 42m", "136": "Stage architecture", "137": "<i style=\"background:#3b82f6\"></i>Deep 1h 42m", "138": "<i style=\"background:#8b5cf6\"></i>REM 1h 14m", "139": "<i style=\"background:#6b7280\"></i>Light 4h 46m", "141": "HRV ms", "143": "Resting HR", "145": "SpO₂ avg", "146": "03 — Nutrition", "147": "Food, supplements and your <em>response</em>, in one frame.", "148": "Macros, micronutrients and your personal supplement stack — paired with your CGM curves and lab markers, so a meal is never just calories. It's a measurable change in your blood.", "149": "Today · Macros", "150": "Protein", "151": "142 g", "152": "Carbs", "153": "218 g", "154": "Fat", "155": "74 g", "156": "Fiber", "157": "38 g", "158": "Stack · 6 of 7 logged", "159": "<span class=\"dot\" aria-hidden=\"true\"></span>Vitamin D3 5000 IU<span class=\"v\">8:12 AM</span>", "160": "<span class=\"dot\" aria-hidden=\"true\"></span>Omega-3 2g<span class=\"v\">8:12 AM</span>", "161": "<span class=\"dot\" aria-hidden=\"true\"></span>Magnesium glyc.<span class=\"v\">10:04 PM</span>", "162": "<span class=\"dot\" aria-hidden=\"true\"></span>Methylfolate<span class=\"v\">8:12 AM</span>", "163": "<span class=\"dot\" aria-hidden=\"true\"></span>Creatine 5g<span class=\"v\">5:30 PM</span>", "164": "B12 — pending", "165": "04 — Cross-pillar AI", "166": "Ask anything. Get an <em>answer</em> built from all of you.", "167": "Not generic advice. Every reply pulls from your labs, sleep, training, food, and genome at once — the way a brilliant doctor with infinite time would actually think.", "168": "You · 2:14 PM", "169": "Why am I so flat in the gym this week?", "170": "+Life · synthesis", "171": "Three signals point the same way. Your <strong>HRV is down 18%</strong> over 5 days. <strong>Ferritin trended low</strong> on your last panel. And you've slept under 6h on 4 of the last 7 nights. This is recovery debt, not a strength plateau.", "172": "+Life · suggested move", "173": "Swap tomorrow's heavy session for <strong>zone-2 + mobility</strong>, push your caffeine cutoff to 10am, and re-test ferritin in 2 weeks. Projected HRV recovery: <strong>+22% in 7 days</strong>.", "174": "EHR · Records connect", "175": "Connect your records once.<br><em>Done</em> forever.", "176": "Every visit, every lab, every prescription — pulled directly from your providers, parsed, and added to your living record. You never re-enter anything.", "177": "Direct from your providers", "178": "Connect Epic, Cerner, Oracle Health and 250+ U.S. health systems through certified FHIR pipes.", "179": "Parsed into structured data", "180": "Free-text notes become structured markers, trends and timelines — not PDFs you'll never re-open.", "181": "Encrypted and yours alone", "182": "HIPAA-grade encryption end-to-end. Your data never trains a model. Export it, delete it, move it, anytime.", "183": "Connected providers", "184": "4 active", "187": "Stanford Health · last sync 2m ago", "188": "Synced", "191": "Personal · last sync 14m ago", "192": "Synced", "195": "Aggregator · last sync 38m ago", "196": "Synced", "199": "Kaiser · pending auth", "200": "Connect", "201": "Encrypted · auto-parsed", "202": "Your living health record<span>One source of truth · always current</span>", "203": "Voice input", "204": "Just <em>talk</em> to it.<br>Logging is over.", "205": "Speak a meal, a workout, a symptom, a supplement. +Life parses, normalizes and files it — across the right pillars — with confirmation, not friction.", "206": "No forms. No taxonomy.", "207": "Speak in your own words. The model maps \"two coffees and a bowl of yogurt\" to actual macros and timing.", "208": "Confirmed before it lands", "209": "Every entry shows you what was understood and where it was filed. Tap to correct, never twice.", "210": "10 seconds, end of day", "211": "A 10-second voice memo replaces 10 minutes of tapping across three apps. That's the only logging you do.", "212": "Voice log · Tuesday", "213": "<i aria-hidden=\"true\"></i>Listening", "214": "You · 7:42 PM", "215": "\"Had grilled salmon, half a sweet potato, big salad with olive oil. Took my magnesium.\"", "216": "Parsed · 4 items", "217": "+Life · confirmed", "218": "Logged dinner: <strong>~38g protein, 32g carbs, 22g fat</strong>. Filed magnesium glycinate to your <strong>evening stack</strong>. Updated today's macro totals.", "219": "You · 7:43 PM", "220": "\"Felt a little wired today, slept poorly.\"", "221": "+Life · cross-pillar", "222": "Noted. I'm seeing your <strong>caffeine logged at 3:40 PM</strong>. Want me to suggest a 10am cutoff for the rest of the week and watch HRV?", "223": "Tap to speak", "224": "How it thinks", "225": "Every insight comes with its <em>reasoning</em>.", "226": "Nothing is a black box. Every recommendation shows you exactly which signals it pulled, how it combined them, and what it concluded — so you can trust it, or push back.", "227": "Case · low energy, week of Apr 22", "228": "From \"I'm flat\" to a <em>specific</em> next move, in five steps.", "229": "A real example of how +Life chained four pillars together to find the actual cause — and the smallest change that fixes it.", "230": "Confidence", "233": "<span class=\"lab\">Trigger</span>You reported low energy 3 days running, gym sessions felt heavy.", "235": "<span class=\"lab\">Sleep pillar</span>HRV down <strong>18%</strong> over 5 nights. Deep sleep averaging <strong>52 min</strong>, vs your 84-min baseline.", "237": "<span class=\"lab\">Clinical pillar</span>Last panel showed <strong>ferritin at 38 ng/mL</strong> — within lab range, but in your bottom quartile historically.", "239": "<span class=\"lab\">Nutrition pillar</span>Iron intake fell to <strong>~9mg/day</strong> after you cut red meat 6 weeks ago. No replacement source logged.", "241": "<span class=\"lab\">Conclusion · suggested move</span>Recovery debt + iron shortfall, not training plateau. <strong>Re-test ferritin in 14 days, add iron-rich meals 3x/week, deload one cycle.</strong> Projected HRV recovery: +22% in a week.", "242": "AI council", "243": "An <em>AI council</em> of specialists, one calm answer.", "244": "Behind every recommendation, multiple specialist agents debate your case from their lens — cardiology, endocrinology, sleep, gut, behavior. You see the synthesis. You can also see them argue.", "246": "Cardiology", "247": "Conservative · risk-first", "248": "ApoB, Lp(a), CAC, BP — long-arc cardiovascular risk.", "250": "Gastroenterology", "251": "Empirical · gut-first", "252": "Microbiome, fiber load, food sensitivities, transit.", "254": "Sleep medicine", "255": "Evidence-led · stage-aware", "256": "Architecture, HRV recovery, light timing.", "258": "Genomics", "259": "Variant-aware · pathway-first", "260": "SNPs, PRS, methylation, pharmacogenomics.", "262": "Endocrinology", "263": "Hormonal · cycle-aware", "264": "Thyroid, cortisol, sex-hormone balance over time.", "265": "Council debate · case 04-22", "267": "\"Why is my LDL still climbing after 8 weeks of diet changes?\"", "268": "<span class=\"lbl\">Cardiology · 14:32</span>Diet alone won't move LDL fast for genetic responders. ApoE 3/4 is in this profile — recommend re-baseline at 12 weeks, prepare to consider statin if Lp(a) stays high.", "269": "<span class=\"lbl\">Gastroenterology · 14:33</span>Fiber intake jumped to 38g, that should help. Saturated fat from dairy is still 18g — that's likely the active driver. Suggest swap to olive oil + nuts for 6 weeks before escalating.", "270": "<span class=\"lbl\">Sleep medicine · 14:34</span>Sleep debt is suppressing leptin and pushing appetite for high-fat snacks. Architecture is the upstream lever here — fix sleep first, then re-measure.", "271": "<span class=\"lbl\">+ Life synthesis</span>The council agrees: <strong>diet alone is unlikely to be enough</strong>, but the smallest high-leverage move is to <strong>swap dairy fat → olive oil + nuts for 6 weeks</strong> while also <strong>restoring sleep architecture</strong> (caffeine cutoff 10am). Re-test ApoB at 12 weeks. Statin conversation only if no movement by then.", "272": "Health passport", "273": "Your whole health, on <em>one page</em>.", "274": "A continuously updating, doctor-readable summary of you. Bring it to a visit, share it with a specialist, hand it to a new provider — instead of starting from scratch.", "275": "+ Life passport · light", "276": "ID 4F8-219K · v.42", "277": "A. Ivanov<span class=\"role\">Patient · 38 · M</span>", "278": "Resting HR / HRV", "279": "52 / 64ms", "280": "BP (7-day avg)", "282": "ApoB · LDL · Lp(a)", "284": "Fasting glucose · HbA1c", "285": "88 · 5.2", "286": "Vit D · Ferritin · B12", "290": "Visit summary · 1 page<span>Updated 2 minutes ago</span>", "291": "OK 18", "292": "Watch 3", "293": "Miss 1", "294": "+ Life passport · clinical", "295": "ID 4F8-219K · v.42", "296": "A. Ivanov<span class=\"role\">Patient · 38 · M</span>", "297": "Resting HR / HRV", "298": "52 / 64ms", "299": "BP (7-day avg)", "301": "ApoB · LDL · Lp(a)", "303": "Fasting glucose · HbA1c", "304": "88 · 5.2", "305": "Vit D · Ferritin · B12", "309": "Specialist export · PDF<span>Encrypted, single-share link</span>", "310": "OK 18", "311": "Watch 3", "312": "Miss 1", "313": "Visit prep", "314": "Walk in <em>prepared</em>.<br>Walk out with answers.", "315": "+Life builds a 1-page briefing before every visit — what's changed since last time, what's flagged, what to ask. Your 15-minute slot stops being a fishing trip.", "316": "Pre-built question list", "317": "The 3–5 questions worth asking, ranked by what's actually changed.", "318": "Trends, not snapshots", "319": "Every marker shown in trend, not as one anxious dot.", "320": "Shareable in one tap", "321": "Send to your provider's portal or print. Their EHR can ingest it directly.", "322": "Pre-visit briefing · Dr. Liu · primary care", "323": "Apr 30 · 9:30 AM", "324": "What's changed since last visit", "325": "HRV down <strong>18%</strong> over 5 nights, still recovering", "326": "7 days", "327": "Ferritin trending toward bottom quartile", "328": "3 mo", "329": "ApoB up <strong>+12 mg/dL</strong> after diet change", "330": "8 wk", "331": "Worth asking", "332": "Repeat iron panel today — can we draw it before I leave?", "333": "5 min", "334": "Lp(a) is normal but ApoE is 3/4 — re-baseline lipids at 12 weeks?", "335": "discuss", "336": "Sleep medicine referral worth it given HRV pattern?", "337": "discuss", "338": "Working list of meds & supps", "339": "Vit D3 5000 IU · Omega-3 2g · Magnesium glyc.", "340": "daily", "341": "Methylfolate 800 µg (MTHFR variant)", "342": "daily", "343": "Adaptive reminders", "344": "Reminders that <em>rewrite</em> themselves when life moves.", "345": "Static reminders fail the moment your day shifts. +Life watches the signal and reshapes the plan in real time — the nudge you actually needed, not the one you set last Sunday.", "346": "Trigger · You skipped breakfast<span>9:48 AM</span>", "347": "Pushing your <strong>creatine + magnesium</strong> dose to your 11:30 lunch instead of pre-workout. Reset back to morning tomorrow if you eat earlier.<span class=\"meta\">Auto-rescheduled · Nutrition pillar</span>", "348": "Trigger · HRV down 14% overnight<span>7:02 AM</span>", "349": "Today's heavy session is now <strong>zone-2 + mobility</strong>. Reminder to push your lift to Thursday. Keeping protein target unchanged.<span class=\"meta\">Auto-rewritten · Movement pillar</span>", "350": "Trigger · Travel day detected<span>5:14 AM</span>", "351": "Hydration target raised to <strong>3.4L</strong>. Caffeine cutoff moved to local 11am. Sleep window flagged 90 min earlier to offset jet lag.<span class=\"meta\">Auto-adapted · Sleep pillar</span>", "352": "Trigger · Cold symptoms logged<span>9:12 PM</span>", "353": "Pausing your training reminders for 48h. Vit D + zinc bumped, ibuprofen suggested only if you cross fever threshold. Will re-check tomorrow.<span class=\"meta\">Auto-paused · Immune signal</span>", "354": "Trigger · Period day 1 detected<span>6:30 AM</span>", "355": "Iron-rich meal suggestions added. Strength volume target lowered <strong>15%</strong> for 3 days. Sleep window extended 30 min.<span class=\"meta\">Cycle-aware · Hormonal pillar</span>", "356": "Coaching", "357": "A coach that <em>knows</em> you, not your category.", "358": "Daily, conversational, available. It checks in when something shifts, not on a schedule. It celebrates the small wins and warns about the early signals — because it actually sees the data.", "359": "Personal context, every reply", "360": "Knows your training history, your last labs, your sleep last night, your supplement stack.", "361": "Proactive, not chatty", "362": "Stays quiet when nothing's wrong. Speaks up the moment a marker drifts.", "363": "Asks for the next 1% — not the next overhaul", "364": "Tiny, sustainable nudges. The compounding kind.", "366": "+Life coach", "367": "<span class=\"live-dot\" aria-hidden=\"true\"></span>Active · listening", "368": "+Life · 7:14 AM", "369": "Morning. HRV is back up to <strong>58ms</strong>, so today's lift is back on. Aim for <strong>~6 sets</strong> on squats, leave 2 reps in the tank.", "370": "Supplements logged · 9:42 AM", "371": "You · 12:30 PM", "372": "Been craving sweet stuff all morning, weird.", "373": "+Life · 12:31 PM", "374": "You're <strong>~28g protein</strong> behind your morning target and you slept 6h 12m. That combo usually drives the craving for you. Try a higher-protein lunch first, see if it fades.", "375": "Lunch logged · 1:14 PM · 42g protein", "376": "+Life · 3:30 PM", "377": "Cravings should ease in the next hour. Logging this — pattern of <strong>poor sleep → carb-craving by noon</strong> in 7 of the last 10 short-sleep days.", "378": "Physician collaboration", "379": "Built <em>with</em> physicians, used inside the visit.", "380": "+Life isn't a wall between you and your provider. It's the brief they get before they walk in the room — and the record they update on the way out.", "382": "\"My patients used to bring printouts and a list of half-remembered worries. Now they bring a +Life passport. I can see the trends, the cross-pillar links, and the questions worth asking — in the first <em>ninety seconds</em> of the visit. It changes what we can do in fifteen minutes.\"", "383": "Dr. Maya Reyes, MD<span> · Internal medicine, longevity</span>", "384": "Clinical advisor · 14 years practice", "385": "Used by clinicians at", "391": "No single app sees<br>the whole picture.<br><em>+Life does.</em>", "392": "Not another tracker. Not another chatbot. The single operating system your health has been waiting for — quiet when nothing is wrong, present when it matters, and finally, all of you in one place.", "393": "Your personal health OS", "394": "Own your <em>biology</em>.", "395": "Get early access →", "396": "Watch demo", "397": "Download on the", "399": "Get it on", "401": "© 2026 +Life · All rights reserved", "402": "Privacy", "403": "Terms", "404": "Security", "405": "Contact"}, "ru": {"2": "Платформа", "3": "Источники данных", "4": "Цены", "5": "Ранний доступ", "6": "Персональная ОС здоровья &amp; благополучия", "7": "Ваше тело<br>работает на <em>данных</em>.<br>Теперь и <em>вы</em>.", "8": "+Life — единая операционная система для вашего здоровья. Она собирает медицинские записи, биометрию, питание, движение и геном и превращает их в одну постоянно обновляемую картину — и один набор следующих шагов.", "9": "Начать бесплатно →", "10": "Смотреть демо", "11": "Ваша ОС здоровья · Live", "12": "<span class=\"live-dot\" aria-hidden=\"true\"></span>Синхронизировано", "14": "из 100", "15": "Прогноз", "16": "+5,2 года", "17": "Добавлено здоровой жизни", "18": "Сердце", "20": "Метаболизм", "22": "Долголетие", "24": "Гормоны", "26": "Сон", "28": "Иммунитет", "30": "<span class=\"live-dot\" aria-hidden=\"true\"></span>AI-инсайт · Сегодня", "31": "Ваша <strong>HRV упала на 14%</strong> после двух ночей короче 6 часов. Перенос завтрашней тренировки на четверг поднимает прогноз восстановления на <strong>+22%</strong>.", "34": "Почему всё остальное не работает", "35": "Десятки инструментов.<br>Все <em>провалились</em> одинаково.", "36": "Вы пробовали кольца, весы, лабораторные наборы, чат-ботов, приложения для еды. Каждое даёт один тонкий срез вас — и ни одно не разговаривает с другими.", "39": "Умные кольца", "40": "Говорит, что вы плохо спали. Не говорит почему и что менять.", "43": "Ежегодные анализы", "44": "100 маркеров, 12 страниц, никакого продолжения. Вы убираете их в папку и забываете.", "47": "Трекеры питания", "48": "Считают калории. Понятия не имеют, что происходит с вашей кровью, сном и стрессом.", "51": "AI-чат-боты", "52": "Отвечают на всё вообще. Не знают ничего о вас конкретно.", "53": "Настоящая проблема", "54": "Ваше здоровье живёт в двадцати местах. Ни одно из них не знает о других.", "55": "Каждое приложение хранит крошечный осколок вас. Ваш кардиолог не видит ваш CGM. Приложение для питания не видит гормональную панель. Вы становитесь переводчиком между системами, которые должны говорить друг с другом, — и теряете сигнал, который появляется только когда всё собрано в одном месте.", "56": "+ Life решает это ↓", "57": "Одна операционная система", "58": "Одна система, которая <em>видит всё</em> и говорит, что важно дальше.", "59": "+Life собирает каждый сигнал — клинический, биометрический, пищевой, поведенческий, генетический — в одну живую картину и выделяет небольшой набор изменений, которые действительно меняют траекторию. Не больше данных. Правильный следующий шаг.", "60": "Пять столпов", "61": "Одна ОС. Пять потоков <em>правды</em><br>о вашем теле.", "62": "Каждое измерение вашей физиологии фиксируется непрерывно и моделируется вместе. Ни один столп не существует отдельно — в этом и суть.", "63": "01 — Клиническое здоровье", "65": "Ваша <em>медицинская</em> история, расшифрованная.", "66": "Лабораторные панели, снимки, записи ЭМК, рецепты. Разобраны и отслеживаются во времени, а не погребены в портале.", "67": "ЭМК", "68": "АНАЛИЗЫ", "69": "СНИМКИ", "70": "02 — Сон", "72": "Ваш двигатель <em>восстановления</em>.", "73": "Архитектура фаз, HRV, пульс в покое, оксигенация. Качество, а не только часы.", "75": "ФАЗЫ", "77": "03 — Питание", "79": "Ваш профиль <em>топлива</em>.", "80": "Макросы, микронутриенты, стек добавок, глюкозный ответ. Что вы едите — и как реагируете.", "81": "МАКРОСЫ", "83": "ДОБАВКИ", "84": "04 — Движение", "86": "Ваша <em>отдача</em> во времени.", "87": "Кардионагрузка, силовой объём, VO₂ max, долг восстановления. Тренировки как длинная кривая, а не отдельные сессии.", "89": "НАГРУЗКА", "90": "СИЛА", "91": "05 — Геном", "93": "Ваш <em>базовый</em> код.", "94": "Полигенный риск, фармакогеномика, пути метилирования. Статичный слой, относительно которого читается всё остальное.", "97": "ФАРМА", "98": "Одна <em>умная</em> ОС, которая учится на всех столпах сразу.", "99": "Сигналы не остаются в изоляции. Ваш сон говорит с тренировками. Тренировки — с геномом. Анализы — с питанием. Модель находит межстолповые связи, которые один специалист никогда не увидит.", "100": "ApoB растёт → <span>меньше насыщенных жиров, больше зоны 2</span>", "101": "Низкий ферритин × падение HRV → <span>пересдать железо, разгрузочная неделя</span>", "102": "Вариант MTHFR + низкий B12 → <span>перейти на метилфолат</span>", "103": "Утренний кортизол × плохой глубокий сон → <span>сдвинуть кофеин до 10:00</span>", "104": "<span class=\"live-dot\" aria-hidden=\"true\"></span>Live · карта связей", "105": "<i style=\"background:#ff6b6b\"></i>Клиника", "106": "<i style=\"background:#4dd4ff\"></i>Сон", "107": "<i style=\"background:#39ff6e\"></i>Питание", "108": "<i style=\"background:#ffa53b\"></i>Движение", "109": "<i style=\"background:#c084fc\"></i>Геном", "110": "Что вы получаете", "111": "Пять столпов.<br>Одна <em>полная</em> картина.", "112": "У каждого столпа свой глубокий экран, но ни один экран не живёт отдельно. Каждый график читается всеми остальными.", "113": "01 — Клиническое здоровье", "114": "Каждый маркер в <em>контексте</em>, а не просто «в норме».", "115": "Не просто «в норме» или «вне нормы». +Life показывает, где каждый маркер находится внутри оптимального диапазона, как он движется годами и какие другие столпы на него давят.", "116": "Кардиометаболическая панель", "117": "12 маркеров · сегодня", "119": "78 мг/дл", "121": "102 мг/дл", "123": "61 мг/дл", "125": "14 нмоль/л", "126": "вч-СРБ", "127": "0,6 мг/л", "128": "Глюкоза натощак", "129": "88 мг/дл", "130": "02 — Сон", "131": "Сон как <em>архитектура</em>, а не одна цифра.", "132": "Смотрите глубокий, REM и лёгкий сон по отдельности. Наблюдайте, как структура прошлой ночи меняет сегодняшнюю HRV, настроение и переносимость тренировки. Модель учит вашу личную кривую восстановления.", "133": "Сон этой ночью", "134": "7 ч 42 м", "136": "Архитектура фаз", "137": "<i style=\"background:#3b82f6\"></i>Глубокий 1 ч 42 м", "138": "<i style=\"background:#8b5cf6\"></i>REM 1 ч 14 м", "139": "<i style=\"background:#6b7280\"></i>Лёгкий 4 ч 46 м", "141": "HRV мс", "143": "Пульс в покое", "145": "SpO₂ средн.", "146": "03 — Питание", "147": "Еда, добавки и ваш <em>ответ</em> — в одном кадре.", "148": "Макросы, микронутриенты и ваш личный стек добавок — вместе с кривыми CGM и лабораторными маркерами, чтобы приём пищи никогда не был просто калориями. Это измеримое изменение в вашей крови.", "149": "Сегодня · Макросы", "150": "Белки", "151": "142 г", "152": "Углеводы", "153": "218 г", "154": "Жиры", "155": "74 г", "156": "Клетчатка", "157": "38 г", "158": "Стек · 6 из 7 отмечено", "159": "<span class=\"dot\" aria-hidden=\"true\"></span>Витамин D3 5000 МЕ<span class=\"v\">8:12</span>", "160": "<span class=\"dot\" aria-hidden=\"true\"></span>Омега-3 2 г<span class=\"v\">8:12</span>", "161": "<span class=\"dot\" aria-hidden=\"true\"></span>Магния глицинат<span class=\"v\">22:04</span>", "162": "<span class=\"dot\" aria-hidden=\"true\"></span>Метилфолат<span class=\"v\">8:12</span>", "163": "<span class=\"dot\" aria-hidden=\"true\"></span>Креатин 5 г<span class=\"v\">17:30</span>", "164": "B12 — ожидает", "165": "04 — Межстолповой AI", "166": "Спросите что угодно. Получите <em>ответ</em>, собранный из всего вас.", "167": "Не общие советы. Каждый ответ одновременно берёт ваши анализы, сон, тренировки, еду и геном — так, как думал бы блестящий врач с бесконечным временем.", "168": "Вы · 14:14", "169": "Почему я на этой неделе такой вялый в зале?", "170": "+Life · синтез", "171": "Три сигнала указывают в одну сторону. Ваша <strong>HRV упала на 18%</strong> за 5 дней. <strong>Ферритин снизился</strong> в последней панели. И вы спали меньше 6 часов 4 ночи из последних 7. Это долг восстановления, а не силовое плато.", "172": "+Life · предлагаемый шаг", "173": "Замените завтрашнюю тяжёлую сессию на <strong>зону 2 + мобильность</strong>, сдвиньте кофеин до 10:00 и пересдайте ферритин через 2 недели. Прогноз восстановления HRV: <strong>+22% за 7 дней</strong>.", "174": "ЭМК · Подключение записей", "175": "Подключите записи один раз.<br><em>Готово</em> навсегда.", "176": "Каждый визит, каждый анализ, каждый рецепт — напрямую от ваших клиник, разобранные и добавленные в вашу живую карту. Вы никогда ничего не вводите заново.", "177": "Напрямую от ваших клиник", "178": "Подключайте Epic, Cerner, Oracle Health и 250+ систем здравоохранения США через сертифицированные каналы FHIR.", "179": "Разобрано в структурированные данные", "180": "Свободный текст заметок становится структурированными маркерами, трендами и таймлайнами — а не PDF, которые вы никогда не откроете.", "181": "Зашифровано и принадлежит только вам", "182": "Сквозное шифрование уровня HIPAA. Ваши данные никогда не обучают модель. Экспортируйте, удаляйте, переносите — в любой момент.", "183": "Подключённые клиники", "184": "4 активных", "187": "Stanford Health · синхронизация 2 мин назад", "188": "Синхронизировано", "191": "Личное · синхронизация 14 мин назад", "192": "Синхронизировано", "195": "Агрегатор · синхронизация 38 мин назад", "196": "Синхронизировано", "199": "Kaiser · ожидает авторизации", "200": "Подключить", "201": "Зашифровано · разобрано автоматически", "202": "Ваша живая медицинская карта<span>Один источник истины · всегда актуальна</span>", "203": "Голосовой ввод", "204": "Просто <em>скажите</em>.<br>Ручной учёт закончился.", "205": "Произнесите приём пищи, тренировку, симптом, добавку. +Life разбирает, нормализует и раскладывает по нужным столпам — с подтверждением, без трения.", "206": "Никаких форм. Никакой таксономии.", "207": "Говорите своими словами. Модель переводит «два кофе и миску йогурта» в реальные макросы и время.", "208": "Подтверждение до записи", "209": "Каждая запись показывает, что было понято и куда сохранено. Одно касание, чтобы поправить — и никогда дважды.", "210": "10 секунд в конце дня", "211": "10-секундная голосовая заметка заменяет 10 минут тыканья в трёх приложениях. Это весь учёт, который вы ведёте.", "212": "Голосовой лог · Вторник", "213": "<i aria-hidden=\"true\"></i>Слушаю", "214": "Вы · 19:42", "215": "«Ел лосось на гриле, половину батата, большой салат с оливковым маслом. Принял магний.»", "216": "Разобрано · 4 позиции", "217": "+Life · подтверждено", "218": "Записан ужин: <strong>~38 г белка, 32 г углеводов, 22 г жиров</strong>. Магния глицинат добавлен в ваш <strong>вечерний стек</strong>. Итоги макросов за день обновлены.", "219": "Вы · 19:43", "220": "«Сегодня немного на взводе, спал плохо.»", "221": "+Life · межстолповой анализ", "222": "Принято. Вижу <strong>кофеин, записанный в 15:40</strong>. Предложить отсечку в 10:00 до конца недели и следить за HRV?", "223": "Нажмите, чтобы говорить", "224": "Как это думает", "225": "Каждый инсайт приходит со своим <em>обоснованием</em>.", "226": "Никакого чёрного ящика. Каждая рекомендация показывает, какие именно сигналы она взяла, как их соединила и к чему пришла — чтобы вы могли ей доверять или возразить.", "227": "Кейс · упадок сил, неделя 22 апреля", "228": "От «я вялый» к <em>конкретному</em> следующему шагу за пять этапов.", "229": "Реальный пример того, как +Life связала четыре столпа, чтобы найти настоящую причину — и самое маленькое изменение, которое её устраняет.", "230": "Уверенность", "233": "<span class=\"lab\">Триггер</span>Вы сообщили об упадке сил 3 дня подряд, тренировки шли тяжело.", "235": "<span class=\"lab\">Столп «Сон»</span>HRV снизилась на <strong>18%</strong> за 5 ночей. Глубокий сон в среднем <strong>52 мин</strong> против вашей базы в 84 мин.", "237": "<span class=\"lab\">Столп «Клиника»</span>Последняя панель показала <strong>ферритин 38 нг/мл</strong> — в пределах нормы лаборатории, но в вашей нижней четверти исторически.", "239": "<span class=\"lab\">Столп «Питание»</span>Потребление железа упало до <strong>~9 мг/день</strong> после того, как вы 6 недель назад убрали красное мясо. Замены в логе нет.", "241": "<span class=\"lab\">Вывод · предлагаемый шаг</span>Долг восстановления + дефицит железа, а не тренировочное плато. <strong>Пересдать ферритин через 14 дней, добавить богатые железом блюда 3 раза в неделю, разгрузить один цикл.</strong> Прогноз восстановления HRV: +22% за неделю.", "242": "AI-совет", "243": "<em>AI-совет</em> специалистов — один спокойный ответ.", "244": "За каждой рекомендацией несколько агентов-специалистов обсуждают ваш случай со своей точки зрения — кардиология, эндокринология, сон, ЖКТ, поведение. Вы видите синтез. А можете посмотреть и сам спор.", "246": "Кардиология", "247": "Консервативно · риск в первую очередь", "248": "ApoB, Lp(a), CAC, давление — сердечно-сосудистый риск на длинной дистанции.", "250": "Гастроэнтерология", "251": "Эмпирически · ЖКТ в первую очередь", "252": "Микробиом, клетчатка, пищевые чувствительности, транзит.", "254": "Медицина сна", "255": "На основе данных · с учётом фаз", "256": "Архитектура, восстановление HRV, тайминг света.", "258": "Геномика", "259": "С учётом вариантов · пути в первую очередь", "260": "SNP, PRS, метилирование, фармакогеномика.", "262": "Эндокринология", "263": "Гормоны · с учётом цикла", "264": "Щитовидная железа, кортизол, баланс половых гормонов во времени.", "265": "Дебаты совета · кейс 04-22", "267": "«Почему мой ЛПНП всё ещё растёт после 8 недель изменений в питании?»", "268": "<span class=\"lbl\">Кардиология · 14:32</span>Одна диета не сдвинет ЛПНП быстро у генетических респондеров. В этом профиле ApoE 3/4 — рекомендую пересдать через 12 недель и быть готовыми обсудить статин, если Lp(a) останется высоким.", "269": "<span class=\"lbl\">Гастроэнтерология · 14:33</span>Клетчатка выросла до 38 г, это должно помочь. Насыщенных жиров из молочного всё ещё 18 г — скорее всего, это главный драйвер. Предлагаю заменить на оливковое масло + орехи на 6 недель, прежде чем усиливать терапию.", "270": "<span class=\"lbl\">Медицина сна · 14:34</span>Недосып подавляет лептин и толкает к жирным перекусам. Архитектура сна — рычаг выше по цепочке: сначала наладить сон, потом перемерить.", "271": "<span class=\"lbl\">+ Life синтез</span>Совет согласен: <strong>одной диеты, скорее всего, недостаточно</strong>, но самый маленький и самый эффективный шаг — <strong>заменить молочный жир на оливковое масло + орехи на 6 недель</strong> и одновременно <strong>восстановить архитектуру сна</strong> (отсечка кофеина в 10:00). Пересдать ApoB через 12 недель. Разговор о статине — только если сдвига не будет.", "272": "Паспорт здоровья", "273": "Всё ваше здоровье на <em>одной странице</em>.", "274": "Постоянно обновляемая, понятная врачу сводка о вас. Возьмите на приём, покажите специалисту, передайте новому врачу — вместо того чтобы начинать с нуля.", "275": "+ Life паспорт · светлый", "276": "ID 4F8-219K · в.42", "277": "А. Иванов<span class=\"role\">Пациент · 38 · М</span>", "278": "Пульс в покое / HRV", "279": "52 / 64 мс", "280": "АД (среднее за 7 дней)", "282": "ApoB · ЛПНП · Lp(a)", "284": "Глюкоза натощак · HbA1c", "285": "88 · 5,2", "286": "Вит. D · Ферритин · B12", "290": "Сводка визита · 1 страница<span>Обновлено 2 минуты назад</span>", "291": "ОК 18", "292": "Следить 3", "293": "Пропуск 1", "294": "+ Life паспорт · клинический", "295": "ID 4F8-219K · в.42", "296": "А. Иванов<span class=\"role\">Пациент · 38 · М</span>", "297": "Пульс в покое / HRV", "298": "52 / 64 мс", "299": "АД (среднее за 7 дней)", "301": "ApoB · ЛПНП · Lp(a)", "303": "Глюкоза натощак · HbA1c", "304": "88 · 5,2", "305": "Вит. D · Ферритин · B12", "309": "Экспорт для специалиста · PDF<span>Зашифрованная одноразовая ссылка</span>", "310": "ОК 18", "311": "Следить 3", "312": "Пропуск 1", "313": "Подготовка к визиту", "314": "Войдите <em>подготовленным</em>.<br>Выйдите с ответами.", "315": "+Life собирает одностраничный брифинг перед каждым визитом — что изменилось с прошлого раза, что помечено, что спросить. Ваши 15 минут перестают быть рыбалкой вслепую.", "316": "Готовый список вопросов", "317": "3–5 вопросов, которые стоит задать, ранжированные по тому, что реально изменилось.", "318": "Тренды, а не снимки", "319": "Каждый маркер показан в динамике, а не одной тревожной точкой.", "320": "Поделиться одним касанием", "321": "Отправьте в портал вашей клиники или распечатайте. Их ЭМК примет это напрямую.", "322": "Брифинг к визиту · Д-р Лю · терапевт", "323": "30 апр · 9:30", "324": "Что изменилось с прошлого визита", "325": "HRV ниже на <strong>18%</strong> за 5 ночей, ещё восстанавливается", "326": "7 дней", "327": "Ферритин движется к нижней четверти", "328": "3 мес", "329": "ApoB вырос на <strong>+12 мг/дл</strong> после смены питания", "330": "8 нед", "331": "Стоит спросить", "332": "Повторить панель железа сегодня — можно взять кровь до ухода?", "333": "5 мин", "334": "Lp(a) в норме, но ApoE 3/4 — пересдать липиды через 12 недель?", "335": "обсудить", "336": "Стоит ли направление к сомнологу при таком паттерне HRV?", "337": "обсудить", "338": "Текущий список препаратов и добавок", "339": "Вит. D3 5000 МЕ · Омега-3 2 г · Магния глицинат", "340": "ежедневно", "341": "Метилфолат 800 мкг (вариант MTHFR)", "342": "ежедневно", "343": "Адаптивные напоминания", "344": "Напоминания, которые <em>переписывают</em> себя, когда жизнь меняется.", "345": "Статичные напоминания ломаются в момент, когда день сдвигается. +Life следит за сигналом и перестраивает план в реальном времени — тот толчок, который вам действительно нужен, а не тот, что вы поставили в прошлое воскресенье.", "346": "Триггер · Вы пропустили завтрак<span>9:48</span>", "347": "Переношу дозу <strong>креатина + магния</strong> на обед в 11:30 вместо предтренировочной. Завтра вернём на утро, если поедите раньше.<span class=\"meta\">Перенесено автоматически · Столп «Питание»</span>", "348": "Триггер · HRV упала на 14% за ночь<span>7:02</span>", "349": "Сегодняшняя тяжёлая сессия теперь — <strong>зона 2 + мобильность</strong>. Напоминание перенести силовую на четверг. Цель по белку без изменений.<span class=\"meta\">Переписано автоматически · Столп «Движение»</span>", "350": "Триггер · Обнаружен день в дороге<span>5:14</span>", "351": "Цель по воде поднята до <strong>3,4 л</strong>. Отсечка кофеина сдвинута на 11:00 по местному. Окно сна помечено на 90 мин раньше, чтобы сгладить джетлаг.<span class=\"meta\">Адаптировано автоматически · Столп «Сон»</span>", "352": "Триггер · Записаны симптомы простуды<span>21:12</span>", "353": "Ставлю тренировочные напоминания на паузу на 48 ч. Вит. D + цинк повышены, ибупрофен предложу только при переходе порога температуры. Проверю завтра.<span class=\"meta\">Приостановлено автоматически · Иммунный сигнал</span>", "354": "Триггер · Обнаружен 1-й день цикла<span>6:30</span>", "355": "Добавлены предложения блюд, богатых железом. Цель по силовому объёму снижена на <strong>15%</strong> на 3 дня. Окно сна продлено на 30 мин.<span class=\"meta\">С учётом цикла · Столп «Гормоны»</span>", "356": "Коучинг", "357": "Коуч, который <em>знает</em> вас, а не вашу категорию.", "358": "Ежедневно, в диалоге, всегда рядом. Выходит на связь, когда что-то сдвигается, а не по расписанию. Отмечает маленькие победы и предупреждает о ранних сигналах — потому что действительно видит данные.", "359": "Личный контекст в каждом ответе", "360": "Знает вашу историю тренировок, последние анализы, сон прошлой ночью, стек добавок.", "361": "Проактивный, а не болтливый", "362": "Молчит, когда всё в порядке. Говорит в момент, когда маркер поплыл.", "363": "Просит следующий 1%, а не следующую перестройку", "364": "Маленькие, устойчивые шаги. Те, что накапливаются.", "366": "+Life коуч", "367": "<span class=\"live-dot\" aria-hidden=\"true\"></span>Активен · слушает", "368": "+Life · 7:14", "369": "Доброе утро. HRV снова на <strong>58 мс</strong>, так что сегодняшняя силовая снова в плане. Цельтесь в <strong>~6 подходов</strong> приседа, оставляя 2 повтора в запасе.", "370": "Добавки отмечены · 9:42", "371": "Вы · 12:30", "372": "Всё утро тянет на сладкое, странно.", "373": "+Life · 12:31", "374": "Вы на <strong>~28 г белка</strong> ниже утренней цели и спали 6 ч 12 м. У вас эта комбинация обычно и вызывает тягу. Попробуйте сначала обед с большим количеством белка — посмотрим, пройдёт ли.", "375": "Обед отмечен · 13:14 · 42 г белка", "376": "+Life · 15:30", "377": "Тяга должна отпустить в течение часа. Записываю: паттерн <strong>плохой сон → тяга к углеводам к полудню</strong> в 7 из последних 10 коротких ночей.", "378": "Сотрудничество с врачами", "379": "Создано <em>вместе</em> с врачами, используется на приёме.", "380": "+Life — не стена между вами и врачом. Это брифинг, который он получает перед тем, как войти в кабинет, — и карта, которую он обновляет на выходе.", "382": "«Раньше мои пациенты приносили распечатки и список полузабытых тревог. Теперь они приносят паспорт +Life. Я вижу тренды, межстолповые связи и вопросы, которые стоит задать, — в первые <em>девяносто секунд</em> приёма. Это меняет то, что мы успеваем за пятнадцать минут.»", "383": "Д-р Майя Рейес, MD<span> · Терапия, долголетие</span>", "384": "Клинический советник · 14 лет практики", "385": "Используют врачи в", "391": "Ни одно приложение не видит<br>картину целиком.<br><em>+Life видит.</em>", "392": "Не ещё один трекер. Не ещё один чат-бот. Единая операционная система, которую ваше здоровье давно ждало, — тихая, когда всё в порядке, рядом, когда это важно, и наконец весь вы в одном месте.", "393": "Ваша персональная ОС здоровья", "394": "Владейте своей <em>биологией</em>.", "395": "Получить ранний доступ →", "396": "Смотреть демо", "397": "Загрузить в", "399": "Доступно в", "401": "© 2026 +Life · Все права защищены", "402": "Конфиденциальность", "403": "Условия", "404": "Безопасность", "405": "Контакты"}};
+    var TITLE = { ru: "+Life — Персональная ОС здоровья и благополучия", en: "+Life — Personal Health & Wellbeing OS" };
+    var ARIA = [
+      ['.brand', { ru:'+Life', en:'+Life' }],
+      ['.dash', { ru:'Превью дашборда вашей ОС здоровья', en:'Your Health OS dashboard preview' }],
+      ['#marquee', { ru:'Подключённые источники данных', en:'Connected data sources' }],
+      ['.store-badge[aria-label*="App Store"], .store-badge[data-aria="appstore"]', { ru:'Загрузить в App Store', en:'Download on the App Store' }],
+      ['.store-badge[aria-label*="Google Play"], .store-badge[data-aria="play"]', { ru:'Доступно в Google Play', en:'Get it on Google Play' }]
+    ];
+    var KEY = 'plus-life-lang';
+    function detect(){
+      try {
+        var q = new URLSearchParams(location.search).get('lang');
+        if (q === 'en' || q === 'ru') return q;
+        var s = localStorage.getItem(KEY);
+        if (s === 'en' || s === 'ru') return s;
+      } catch(e){}
+      return 'ru';
+    }
+    function apply(lang){
+      var dict = I18N[lang] || I18N.ru;
+      var els = document.querySelectorAll('[data-i18n]');
+      for (var i=0; i<els.length; i++){
+        var k = els[i].getAttribute('data-i18n');
+        if (dict[k] != null) els[i].innerHTML = dict[k];
+      }
+      document.documentElement.lang = lang;
+      document.title = TITLE[lang] || TITLE.ru;
+      for (var a=0; a<ARIA.length; a++){
+        var nodes = document.querySelectorAll(ARIA[a][0]);
+        for (var n=0; n<nodes.length; n++){
+          if (!nodes[n].hasAttribute('data-aria')) nodes[n].setAttribute('data-aria', ARIA[a][0].indexOf('App Store')>-1 ? 'appstore' : (ARIA[a][0].indexOf('Google')>-1 ? 'play' : 'x'));
+          nodes[n].setAttribute('aria-label', ARIA[a][1][lang]);
+        }
+      }
+      var btns = document.querySelectorAll('.lang-btn');
+      for (var b=0; b<btns.length; b++) btns[b].setAttribute('aria-pressed', btns[b].getAttribute('data-lang') === lang ? 'true' : 'false');
+      try { localStorage.setItem(KEY, lang); } catch(e){}
+    }
+    var current = detect();
+    if (current !== 'ru') apply(current); else apply('ru');
+    document.addEventListener('click', function(e){
+      var b = e.target.closest ? e.target.closest('.lang-btn') : null;
+      if (!b) return;
+      apply(b.getAttribute('data-lang'));
+    });
+  })();
 
   /* ============================================================
      NAV SHADOW + SCROLL PROGRESS
