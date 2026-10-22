@@ -321,6 +321,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
 .nav-links a:not(.btn):hover{color:var(--tx)}
 .nav-links a:not(.btn):hover::after{transform:scaleX(1)}
 .nav-links .btn-nav{margin-left:8px}
+.nav-cta-m{display:none}
+.nav-toggle{display:none;position:relative;width:44px;height:44px;margin-right:-10px;border-radius:10px;-webkit-tap-highlight-color:transparent}
+.nav-toggle span{position:absolute;left:12px;right:12px;height:1.5px;border-radius:2px;background:var(--tx);transition:transform .4s var(--ease), opacity .2s var(--ease)}
+.nav-toggle span:nth-child(1){top:16px}
+.nav-toggle span:nth-child(2){top:21.25px}
+.nav-toggle span:nth-child(3){top:26.5px}
+.nav.open .nav-toggle span:nth-child(1){transform:translateY(5.25px) rotate(45deg)}
+.nav.open .nav-toggle span:nth-child(2){opacity:0}
+.nav.open .nav-toggle span:nth-child(3){transform:translateY(-5.25px) rotate(-45deg)}
+html.nav-lock body{overflow:hidden}
+
+/* swipe-rail dots (shown only where the grid turns into a carousel) */
+.rail-dots{display:none}
 
 /* ============================================================
    §8.2 HERO
@@ -1153,16 +1166,85 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
   .phys::before{font-size:160px;right:16px}
 }
 @media (max-width:760px){
-  .nav-links{gap:16px}
-  .nav-links a:not(.btn){display:none}
-  .nav-links .btn-nav{margin-left:0}
-  .nav-links .lang{order:-1}
-  .nav{height:62px}
+  /* nav → burger + drop-down panel */
+  .nav{height:62px;gap:12px}
+  .nav.open{background:rgba(8,8,10,0.96)}
+  .nav-cta-m{display:inline-flex;margin-left:auto;padding:10px 14px;font-size:10px;letter-spacing:.12em}
+  .nav-toggle{display:block}
+  .nav-links{
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    padding:6px var(--gutter) 26px;
+    max-height:calc(100vh - 62px);max-height:calc(100dvh - 62px);overflow-y:auto;
+    background:#0a0a0d;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 100vmax 0 100vmax rgba(0,0,0,0.55), 0 30px 60px -20px rgba(0,0,0,0.9);
+    opacity:0;visibility:hidden;transform:translateY(-10px);
+    transition:opacity .3s var(--ease), transform .4s var(--ease), visibility 0s linear .4s;
+  }
+  .nav.open .nav-links{opacity:1;visibility:visible;transform:none;transition:opacity .3s var(--ease), transform .4s var(--ease), visibility 0s}
+  .nav-links a:not(.btn){
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 2px;font-size:12px;color:var(--tx);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-links a:not(.btn)::after{content:"→";position:static;height:auto;background:none;transform:none;color:var(--gr);font-family:var(--fs);font-size:15px;letter-spacing:0}
+  .nav-links .lang{align-self:flex-start;margin-top:22px}
+  .nav-links .lang-btn{padding:10px 18px;font-size:11px}
+  .nav-links .btn-nav{margin:16px 0 0;padding:17px 20px;font-size:11px}
 }
 @media (max-width:640px){
-  .prob-grid{grid-template-columns:1fr}
-  .prob-card{min-height:0}
-  .pil-grid{grid-template-columns:1fr}
+  /* rhythm + type */
+  .sec{padding-top:72px;padding-bottom:72px}
+  .hero{padding-top:52px;padding-bottom:64px}
+  .sec-head{margin-bottom:36px}
+  .sec-head .desc{max-width:none}
+  .h1{font-size:clamp(40px,12vw,52px)}
+  .h2{font-size:clamp(30px,8.6vw,40px)}
+  .lead{font-size:16px}
+  .kicker{letter-spacing:.16em;margin-bottom:20px}
+  .hero .kicker{margin-bottom:22px}
+  .hero-lead{margin-top:22px}
+  .hero-cta{margin-top:30px;gap:10px}
+
+  /* card grids → horizontal swipe rails */
+  .m-rail{
+    display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:80%;gap:12px;
+    margin:0 calc(var(--gutter) * -1);padding:6px var(--gutter) 22px;
+    scroll-padding:0 var(--gutter);
+    overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .m-rail::-webkit-scrollbar{display:none}
+  .m-rail > *{scroll-snap-align:start}
+  .m-rail > .sr{transform:none}
+  .pass-grid.m-rail{grid-auto-columns:88%}
+  .rail-dots{display:flex;justify-content:center;gap:6px;margin-top:2px}
+  .rail-dots i{width:6px;height:6px;border-radius:100px;background:var(--line2);transition:width .35s var(--ease), background .35s var(--ease)}
+  .rail-dots i.on{width:20px;background:var(--gr);box-shadow:0 0 8px rgba(57,255,110,0.5)}
+  .s-light .rail-dots i{background:var(--line-lt2)}
+  .s-light .rail-dots i.on{background:var(--gr2);box-shadow:none}
+  .prob-card{min-height:0;padding:22px 20px 20px}
+  .pil-card{padding:24px 20px 20px}
+
+  /* problem diptych */
+  .prob-real{margin-top:28px}
+  .prob-real,.prob-sol{padding:26px 22px;gap:16px}
+  .prob-real .ico-wrap,.prob-sol .ico-wrap{width:46px;height:46px;border-radius:12px}
+  .prob-real p,.prob-sol p{font-size:14.5px}
+
+  /* constellation */
+  .cnst-copy{padding:28px 22px;gap:18px}
+  .cnst-copy h3{font-size:25px}
+  #constellationCanvas{height:320px}
+  .cnst-cap{top:14px;right:14px}
+  .cnst-legend{left:14px;right:14px;bottom:14px;gap:6px}
+
+  /* features */
+  .feat-row{padding:44px 0}
+  .feat-row,.feat-row.flip{gap:28px}
+  .feat-row p{margin-top:16px}
+  .feat-vis{min-height:0}
   .f-nut{grid-template-columns:1fr}
   .f-bm-row{grid-template-columns:1fr auto;gap:10px 14px}
   .f-bm-row .vl{grid-column:2;grid-row:1}
@@ -1183,11 +1265,74 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
   .visit-card{padding:22px}
   .visit-block li{grid-template-columns:14px minmax(0,1fr)}
   .visit-block li .v{grid-column:2;padding-top:0}
-  .foot-inner{flex-direction:column;align-items:flex-start}
-  .inst-row{gap:12px 22px}
-  .statement p{margin-top:28px}
+  .voice-mock,.coach-mock{min-height:0}
+  .deb-q{font-size:17px}
+
+  /* EHR: status pill drops under the provider name */
+  .ehr-grid,.voice-grid,.coun-grid,.visit-grid,.rem-grid,.coach-grid{gap:36px}
+  .ehr-bullets{margin-top:28px;gap:18px}
+  .prov-row{grid-template-columns:42px minmax(0,1fr);gap:6px 14px}
+  .prov-row .pill{grid-column:2;justify-self:start}
+  .ehr-flow .lbl{text-align:center;letter-spacing:.14em}
+  .ehr-dest{padding:18px}
+
+  /* reasoning */
+  .reason-panel{padding:22px 18px;gap:32px}
+  .reason-step{grid-template-columns:28px minmax(0,1fr);gap:12px}
+  .reason-step .body{padding:13px 15px}
+
+  /* passport + visit */
+  .pass{padding:22px}
+  .pass-name{font-size:24px}
+  .pass-chips{margin-left:0}
+  .visit-head .t{letter-spacing:.12em}
+
+  /* physician */
+  .phys{padding:28px 22px 24px}
+  .phys::before{font-size:120px;top:-14px}
+  .phys-mono{width:52px;height:52px;font-size:17px}
+  .inst-row{gap:10px 20px;margin-top:32px;padding-top:26px}
+  .inst-row .lbl{flex-basis:100%;margin-right:0}
+  .inst-row .nm{font-size:17px}
+
+  /* statement + CTA */
+  .statement{padding:96px var(--gutter)}
+  .statement h2{font-size:clamp(34px,10vw,48px)}
+  .statement p{margin-top:28px;font-size:16px}
+  .cta{padding:110px var(--gutter)}
+  .cta h2{font-size:clamp(40px,12.5vw,64px)}
+  .cta .kicker{margin-bottom:24px}
+  .cta-actions{margin-top:38px;gap:10px}
+  .cta-stores{margin-top:24px;gap:10px}
+
+  /* footer */
+  .foot{padding:30px var(--gutter) 34px}
+  .foot-inner{flex-direction:column;align-items:flex-start;gap:22px}
+  .foot-r{display:grid;grid-template-columns:repeat(2,max-content);gap:16px 32px}
+  .foot-r .lang{grid-column:1/-1;justify-self:start}
+  .foot-r a{padding:4px 0}
   .marq-track{animation-duration:26s}
 }
+@media (max-width:359px){
+  .nav-cta-m{display:none}
+}
+@media (max-width:380px){
+  .bm-row{grid-template-columns:16px minmax(0,1fr) 64px 26px;gap:10px}
+  .ring{width:88px;height:88px}
+  .ring-num .n{font-size:28px}
+  .life-callout .v{font-size:28px}
+  .dash{padding:18px}
+  .m-rail{grid-auto-columns:86%}
+  .rem-row{padding:16px}
+  .btn{letter-spacing:.1em}
+}
+
+/* touch screens: no sticky hover lifts */
+@media (hover:none){
+  .btn:hover,.prob-card:hover,.pil-card:hover,.pass:hover,.store-badge:hover,.coun-agent:hover,.rem-row:hover,.reason-step:hover .body{transform:none}
+  .pil-card:hover::after{opacity:0}
+}
+a,button{-webkit-tap-highlight-color:transparent}
 </style>
 </head>
 <body>
@@ -1221,7 +1366,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
     </svg>
     <span class="brand-word">Life</span>
   </a>
-  <div class="nav-links">
+  <div class="nav-links" id="navMenu">
     <a href="#" data-i18n="2">Платформа</a>
     <a href="#" data-i18n="3">Источники данных</a>
     <a href="#" data-i18n="4">Цены</a>
@@ -1231,6 +1376,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
     </div>
     <a class="btn btn-nav" href="https://health-coach-theta.vercel.app" target="_blank" rel="noopener noreferrer" data-i18n="5">Ранний доступ</a>
   </div>
+  <a class="btn btn-nav nav-cta-m" href="https://health-coach-theta.vercel.app" target="_blank" rel="noopener noreferrer" data-i18n="5">Ранний доступ</a>
+  <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Меню"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- ============================================================
@@ -1384,7 +1531,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
     <p class="desc sr d2" data-i18n="36">Вы пробовали кольца, весы, лабораторные наборы, чат-ботов, приложения для еды. Каждое даёт один тонкий срез вас — и ни одно не разговаривает с другими.</p>
     </div>
 
-    <div class="prob-grid">
+    <div class="prob-grid m-rail">
       <div class="prob-card sr up d1"><span class="x" aria-hidden="true">✕</span><div class="ico" aria-hidden="true">⌚</div><div class="nm" data-i18n="39">Умные кольца</div><div class="why" data-i18n="40">Говорит, что вы плохо спали. Не говорит почему и что менять.</div></div>
       <div class="prob-card sr up d2"><span class="x" aria-hidden="true">✕</span><div class="ico" aria-hidden="true">🧪</div><div class="nm" data-i18n="43">Ежегодные анализы</div><div class="why" data-i18n="44">100 маркеров, 12 страниц, никакого продолжения. Вы убираете их в папку и забываете.</div></div>
       <div class="prob-card sr up d3"><span class="x" aria-hidden="true">✕</span><div class="ico" aria-hidden="true">🥗</div><div class="nm" data-i18n="47">Трекеры питания</div><div class="why" data-i18n="48">Считают калории. Понятия не имеют, что происходит с вашей кровью, сном и стрессом.</div></div>
@@ -1428,7 +1575,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
     <p class="desc sr d2" data-i18n="62">Каждое измерение вашей физиологии фиксируется непрерывно и моделируется вместе. Ни один столп не существует отдельно — в этом и суть.</p>
     </div>
 
-    <div class="pil-grid sr up d1">
+    <div class="pil-grid m-rail sr up d1">
       <div class="pil-card">
         <div class="pil-num" data-i18n="63">01 — Клиническое здоровье</div>
         <div class="pil-ico" aria-hidden="true">🩺</div>
@@ -1822,7 +1969,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
     <p class="desc sr d2" data-i18n="274">Постоянно обновляемая, понятная врачу сводка о вас. Возьмите на приём, покажите специалисту, передайте новому врачу — вместо того чтобы начинать с нуля.</p>
     </div>
 
-    <div class="pass-grid">
+    <div class="pass-grid m-rail">
       <div class="pass pass-lt sr up d1">
         <div class="pass-head"><span class="t" data-i18n="275">+ Life паспорт · светлый</span><span class="pass-id" data-i18n="276">ID 4F8-219K · в.42</span></div>
         <div><div class="pass-name" data-i18n="277">А. Иванов<span class="role">Пациент · 38 · М</span></div></div>
@@ -2093,6 +2240,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
     var TITLE = { ru: "+Life — Персональная ОС здоровья и благополучия", en: "+Life — Personal Health & Wellbeing OS" };
     var ARIA = [
       ['.brand', { ru:'+Life', en:'+Life' }],
+      ['.nav-toggle', { ru:'Меню', en:'Menu' }],
       ['.dash', { ru:'Превью дашборда вашей ОС здоровья', en:'Your Health OS dashboard preview' }],
       ['#marquee', { ru:'Подключённые источники данных', en:'Connected data sources' }],
       ['.store-badge[aria-label*="App Store"], .store-badge[data-aria="appstore"]', { ru:'Загрузить в App Store', en:'Download on the App Store' }],
@@ -2155,6 +2303,58 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gr);outline-offset:
     }
     window.addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(update); } }, { passive:true });
     update();
+  })();
+
+  /* ============================================================
+     MOBILE NAV MENU
+     ============================================================ */
+  (function(){
+    var nav = document.getElementById('nav');
+    var btn = nav && nav.querySelector('.nav-toggle');
+    var menu = document.getElementById('navMenu');
+    if (!btn || !menu) return;
+    function set(open){
+      nav.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.documentElement.classList.toggle('nav-lock', open);
+    }
+    btn.addEventListener('click', function(){ set(!nav.classList.contains('open')); });
+    menu.addEventListener('click', function(e){ if (e.target.closest && e.target.closest('a')) set(false); });
+    document.addEventListener('click', function(e){ if (nav.classList.contains('open') && !nav.contains(e.target)) set(false); });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && nav.classList.contains('open')){ set(false); btn.focus(); }
+    });
+    var mq = window.matchMedia ? window.matchMedia('(max-width:760px)') : null;
+    if (mq){
+      var onChange = function(){ if (!mq.matches) set(false); };
+      if (mq.addEventListener) mq.addEventListener('change', onChange); else if (mq.addListener) mq.addListener(onChange);
+    }
+  })();
+
+  /* ============================================================
+     SWIPE RAILS — position dots for grids that scroll on phones
+     ============================================================ */
+  (function(){
+    var rails = document.querySelectorAll('.m-rail');
+    Array.prototype.forEach.call(rails, function(rail){
+      var count = rail.children.length;
+      if (count < 2) return;
+      var dots = document.createElement('div');
+      dots.className = 'rail-dots';
+      dots.setAttribute('aria-hidden', 'true');
+      for (var i=0; i<count; i++) dots.appendChild(document.createElement('i'));
+      rail.parentNode.insertBefore(dots, rail.nextSibling);
+      var ticking = false;
+      function update(){
+        ticking = false;
+        var max = rail.scrollWidth - rail.clientWidth;
+        var idx = max > 0 ? Math.round(rail.scrollLeft / max * (count - 1)) : 0;
+        for (var d=0; d<count; d++) dots.children[d].classList.toggle('on', d === idx);
+      }
+      rail.addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(update); } }, { passive:true });
+      window.addEventListener('resize', update);
+      update();
+    });
   })();
 
   /* ============================================================
